@@ -15,3 +15,9 @@ To create a branch, type the following in your terminal:
 3. git checkout <name_of_your_branch>
 
 To merge main into your branch type: git merge main
+
+## Links 
+Creating a Branch from an issue
+Linking a Pull Request to an issue 
+
+test
