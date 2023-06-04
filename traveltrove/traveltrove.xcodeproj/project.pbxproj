@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9C6375C2A2C3CD5003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375B2A2C3CD5003CD6D2 /* ColorPalette.swift */; };
+		C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
 		C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DE2A26C5EB0037CEF4 /* ViewController.swift */; };
@@ -17,7 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C9C6375B2A2C3CD5003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		C9C637642A2C43DA003CD6D2 /* Imprima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Imprima-Regular.ttf"; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,9 +43,18 @@
 		C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
-				C9C6375B2A2C3CD5003CD6D2 /* ColorPalette.swift */,
+				C9C637632A2C43CE003CD6D2 /* Fonts */,
+				C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */,
 			);
 			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
+		C9C637632A2C43CE003CD6D2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C9C637642A2C43DA003CD6D2 /* Imprima-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		C9EF42CE2A26C5EA0037CEF4 = {
@@ -152,7 +162,7 @@
 				C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */,
 				C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */,
 				C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */,
-				C9C6375C2A2C3CD5003CD6D2 /* ColorPalette.swift in Sources */,
+				C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
