@@ -43,7 +43,6 @@
 		C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
-				C9C637632A2C43CE003CD6D2 /* Fonts */,
 				C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */,
 			);
 			path = "Custom Elements";
@@ -84,6 +83,7 @@
 				C9EF42E32A26C5EC0037CEF4 /* Assets.xcassets */,
 				C9EF42E52A26C5EC0037CEF4 /* LaunchScreen.storyboard */,
 				C9EF42E82A26C5EC0037CEF4 /* Info.plist */,
+				C9C637632A2C43CE003CD6D2 /* Fonts */,
 			);
 			path = traveltrove;
 			sourceTree = "<group>";
