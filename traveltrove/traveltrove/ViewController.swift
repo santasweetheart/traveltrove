@@ -9,7 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var hello: UILabel!
+    let introscreen = IntroPageView()
+    
+    override func loadView() {
+        view = introscreen
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
