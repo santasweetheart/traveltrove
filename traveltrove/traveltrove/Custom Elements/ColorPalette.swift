@@ -2,12 +2,13 @@
 //  ColorPalette.swift
 //  traveltrove
 //
-//  Created by Katherine on 6/3/23.
+//  Created by Santa on 6/3/23.
 //
 
 import Foundation
 import UIKit
 
+/// This class  conatins all the custom colors used in the deisgn of TravelTrove
 extension UIColor{
     static var customPeach: UIColor {
         return UIColor(red: 255/255, green: 203/255, blue: 173/255, alpha: 1.0)

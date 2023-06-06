@@ -2,12 +2,13 @@
 //  CustomButton.swift
 //  traveltrove
 //
-//  Created by Katherine on 6/6/23.
+//  Created by Santa on 6/6/23.
 //
 
 import Foundation
 import UIKit
 
+///This class extends the UIButton class to create a custom pill shaped button
 extension UIButton {
     static func createPillShapedButton(withTitle title: String, buttonColor color: UIColor, size: CGSize = CGSize(width: 125, height: 50)) -> UIButton {
         let button = UIButton(type: .system)
