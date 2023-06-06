@@ -10,6 +10,7 @@
 		C92FA7AB2A2F6E5000110696 /* IntroPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */; };
 		C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AD2A2F729F00110696 /* CustomButton.swift */; };
 		C92FA7B02A2F76B800110696 /* ViewUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */; };
+		C92FA7B32A2F9B7800110696 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7B22A2F9B7800110696 /* LandingPageView.swift */; };
 		C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 		C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPageView.swift; sourceTree = "<group>"; };
 		C92FA7AD2A2F729F00110696 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilites.swift; sourceTree = "<group>"; };
+		C92FA7B22A2F9B7800110696 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		C9C637642A2C43DA003CD6D2 /* Imprima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Imprima-Regular.ttf"; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +54,14 @@
 				C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */,
 			);
 			path = "Intro Page";
+			sourceTree = "<group>";
+		};
+		C92FA7B12A2F9B1B00110696 /* Landing Page */ = {
+			isa = PBXGroup;
+			children = (
+				C92FA7B22A2F9B7800110696 /* LandingPageView.swift */,
+			);
+			path = "Landing Page";
 			sourceTree = "<group>";
 		};
 		C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */ = {
@@ -91,6 +101,7 @@
 		C9EF42D92A26C5EB0037CEF4 /* traveltrove */ = {
 			isa = PBXGroup;
 			children = (
+				C92FA7B12A2F9B1B00110696 /* Landing Page */,
 				C92FA7A92A2F6E1400110696 /* Intro Page */,
 				C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */,
 				C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */,
@@ -182,6 +193,7 @@
 				C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */,
 				C92FA7AB2A2F6E5000110696 /* IntroPageView.swift in Sources */,
 				C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */,
+				C92FA7B32A2F9B7800110696 /* LandingPageView.swift in Sources */,
 				C92FA7B02A2F76B800110696 /* ViewUtilites.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
