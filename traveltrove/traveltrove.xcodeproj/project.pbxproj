@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58E985F72A2F8F99005ECED6 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E985F62A2F8F99005ECED6 /* LoginPageView.swift */; };
+		58E985F92A2F8FCE005ECED6 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */; };
 		C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58E985F62A2F8F99005ECED6 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
+		58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		C9C637642A2C43DA003CD6D2 /* Imprima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Imprima-Regular.ttf"; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +79,8 @@
 		C9EF42D92A26C5EB0037CEF4 /* traveltrove */ = {
 			isa = PBXGroup;
 			children = (
+				58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */,
+				58E985F62A2F8F99005ECED6 /* LoginPageView.swift */,
 				C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */,
 				C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */,
 				C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */,
@@ -162,6 +168,8 @@
 				C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */,
 				C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */,
 				C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */,
+				58E985F92A2F8FCE005ECED6 /* LoginPageViewController.swift in Sources */,
+				58E985F72A2F8F99005ECED6 /* LoginPageView.swift in Sources */,
 				C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
