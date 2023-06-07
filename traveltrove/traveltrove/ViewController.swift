@@ -9,10 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let introscreen = LandingPageView()
+    let landingscreen = LandingPageView()
     
     override func loadView() {
-        view = introscreen
+        view = landingscreen
     }
     
     override func viewDidLoad() {
