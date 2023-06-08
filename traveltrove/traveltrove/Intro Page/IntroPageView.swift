@@ -58,7 +58,6 @@ class IntroPageView: UIView {
     func setupButtons(){
         loginButton = UIButton.createPillShapedButton(withTitle: "Login", buttonColor: .customPeach)
         self.addSubview(loginButton)
-        loginButton.isUserInteractionEnabled = false
         signupButton = UIButton.createPillShapedButton(withTitle: "Sign Up", buttonColor: .customPeach)
         self.addSubview(signupButton)
     }
