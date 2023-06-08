@@ -8,12 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let landingscreen = LandingPageView()
-    
-    override func loadView() {
-        view = landingscreen
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
