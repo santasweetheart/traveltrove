@@ -78,6 +78,7 @@ class LandingPageView: UIView {
         suitcaseIcon.clipsToBounds = true
         suitcaseIcon.translatesAutoresizingMaskIntoConstraints = false
         
+        //rezising the image within the button
         let symbolConfig = UIImage.SymbolConfiguration(pointSize: 40)
         suitcaseIcon.setPreferredSymbolConfiguration(symbolConfig, forImageIn: .normal)
         self.addSubview(suitcaseIcon)
@@ -91,6 +92,7 @@ class LandingPageView: UIView {
         listIcon.clipsToBounds = true
         listIcon.translatesAutoresizingMaskIntoConstraints = false
         
+        //rezising the image within the button
         let symbolConfig = UIImage.SymbolConfiguration(pointSize: 40)
         listIcon.setPreferredSymbolConfiguration(symbolConfig, forImageIn: .normal)
         self.addSubview(listIcon)
