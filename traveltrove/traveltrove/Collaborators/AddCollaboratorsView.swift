@@ -20,6 +20,7 @@ class AddCollaboratorsView: UIView {
         setupScrollView()
         setupTableView()
         setupAddButton()
+        scrollView.contentSize = tableViewCollaborator.frame.size
         initConstraints()
     }
 
@@ -27,6 +28,7 @@ class AddCollaboratorsView: UIView {
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(scrollView)
+        
     }
 
     func setupTableView() {
@@ -34,10 +36,9 @@ class AddCollaboratorsView: UIView {
         tableViewCollaborator.register(TableViewCollaboratorCell.self, forCellReuseIdentifier: "collaborators")
         tableViewCollaborator.separatorStyle = .none
         tableViewCollaborator.separatorColor = .clear
-        tableViewCollaborator.backgroundColor = .white
+        tableViewCollaborator.backgroundColor = .blue
         tableViewCollaborator.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(tableViewCollaborator)
-        
         
     }
 

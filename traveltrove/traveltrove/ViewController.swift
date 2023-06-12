@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     override func loadView() {
         view = collaboratorsScreen
+
     }
     
     override func viewDidLoad() {
