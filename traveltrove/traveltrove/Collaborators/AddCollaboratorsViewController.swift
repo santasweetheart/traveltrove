@@ -32,7 +32,6 @@ class AddCollaboratorsViewController: UIViewController {
         collaboratorsScreen.addButton.addTarget(self, action: #selector(onAddBarButtonTapped), for: .touchUpInside)
         
         //Adding Dummy Data
-        print(collaborators.count)
         collaborators.append(User(name: "John Doe", email: "john@example.com", image: UIImage(named: "logo")))
         collaborators.append(User(name: "Jane Smith", email: "jane@example.com", image: UIImage(named: "logo")))
         collaborators.append(User(name: "Bob Johnson", email: "bob@example.com", image: UIImage(named: "logo")))

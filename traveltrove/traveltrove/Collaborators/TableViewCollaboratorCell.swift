@@ -85,15 +85,15 @@ class TableViewCollaboratorCell: UITableViewCell {
             
             profileImageView.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 8),
             profileImageView.centerYAnchor.constraint(equalTo: wrapperCellView.centerYAnchor),
-            profileImageView.heightAnchor.constraint(equalTo: wrapperCellView.heightAnchor, constant: -20),
-            profileImageView.widthAnchor.constraint(equalTo: wrapperCellView.heightAnchor, constant: -20),
+            profileImageView.heightAnchor.constraint(equalTo: wrapperCellView.heightAnchor, constant: 20),
+            profileImageView.widthAnchor.constraint(equalTo: wrapperCellView.heightAnchor, constant: 20),
             
             xButton.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 8),
             xButton.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: -8),
             xButton.widthAnchor.constraint(equalToConstant: 24),
             xButton.heightAnchor.constraint(equalToConstant: 24),
                      
-            wrapperCellView.heightAnchor.constraint(equalToConstant: 104)
+            wrapperCellView.heightAnchor.constraint(equalToConstant: 24)
             
         ])
     }

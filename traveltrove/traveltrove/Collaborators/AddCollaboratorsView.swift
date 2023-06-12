@@ -17,10 +17,10 @@ class AddCollaboratorsView: UIView {
         backgroundColor = .customTan
 
         // Set up elements
-        setupScrollView()
+        //setupScrollView()
         setupTableView()
         setupAddButton()
-        scrollView.contentSize = tableViewCollaborator.frame.size
+        //scrollView.contentSize = tableViewCollaborator.frame.size
         initConstraints()
     }
 
@@ -38,7 +38,7 @@ class AddCollaboratorsView: UIView {
         tableViewCollaborator.separatorColor = .clear
         tableViewCollaborator.backgroundColor = .blue
         tableViewCollaborator.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(tableViewCollaborator)
+        self.addSubview(tableViewCollaborator)
         
     }
 
@@ -59,15 +59,20 @@ class AddCollaboratorsView: UIView {
 
     func initConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -64),
-            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+//            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+//            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -64),
+//            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
 
-            tableViewCollaborator.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8),
-            tableViewCollaborator.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8),
-            tableViewCollaborator.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
-            tableViewCollaborator.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -8),
+//            tableViewCollaborator.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8),
+//            tableViewCollaborator.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8),
+//            tableViewCollaborator.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
+//            tableViewCollaborator.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -8),
+            
+            tableViewCollaborator.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            tableViewCollaborator.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            tableViewCollaborator.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            tableViewCollaborator.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
     
             addButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             addButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
