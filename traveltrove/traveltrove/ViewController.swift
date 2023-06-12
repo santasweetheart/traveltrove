@@ -9,10 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let introscreen = IntroPageView()
+    let collaboratorsScreen = AddCollaboratorsView()
     
     override func loadView() {
-        view = introscreen
+        view = collaboratorsScreen
     }
     
     override func viewDidLoad() {
