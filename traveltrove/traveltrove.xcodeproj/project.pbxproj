@@ -54,6 +54,13 @@
 			path = "Intro Page";
 			sourceTree = "<group>";
 		};
+		C95A6B022A390DC7007E3799 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +98,7 @@
 		C9EF42D92A26C5EB0037CEF4 /* traveltrove */ = {
 			isa = PBXGroup;
 			children = (
+				C95A6B022A390DC7007E3799 /* New Group */,
 				C92FA7A92A2F6E1400110696 /* Intro Page */,
 				C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */,
 				C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */,
