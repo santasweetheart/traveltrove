@@ -9,10 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let introscreen = IntroPageView()
+    let screen = IndividualDocView()
     
     override func loadView() {
-        view = introscreen
+        view = screen
     }
     
     override func viewDidLoad() {
