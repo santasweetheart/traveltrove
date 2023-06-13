@@ -8,11 +8,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    override func loadView() {
-    }
+    let introscreen = IntroPageView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func loadView() {
+        view = introscreen
     }
 }
