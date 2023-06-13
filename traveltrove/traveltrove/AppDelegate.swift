@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  traveltrove
 //
-//  Created by Katherine on 5/30/23.
+//  Created by Santa on 5/30/23.
 //
 
 import UIKit
