@@ -43,7 +43,7 @@ class AddCollaboratorsView: UIView {
     func setupAddButton() {
         addButton = UIButton()
         addButton.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-        addButton.tintColor = .white
+        addButton.tintColor = .black
         addButton.contentMode = .scaleToFill
         addButton.clipsToBounds = true
         addButton.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +67,7 @@ class AddCollaboratorsView: UIView {
 
             tableViewCollaborator.heightAnchor.constraint(equalTo: scrollView.heightAnchor, constant: -16),
             
-            addButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8),
+            addButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             addButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
         ])
     }

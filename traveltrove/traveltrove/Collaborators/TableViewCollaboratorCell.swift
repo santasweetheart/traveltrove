@@ -17,7 +17,7 @@ class TableViewCollaboratorCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
           super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        self.backgroundColor =  .customTan
         setupWrapperCellView()
         setupNameLabel()
         setupEmailLabel()
@@ -28,10 +28,8 @@ class TableViewCollaboratorCell: UITableViewCell {
 
     func setupWrapperCellView(){
         wrapperCellView = UIView()
-        wrapperCellView.layer.borderWidth = 1.0
-       // wrapperCellView.layer.borderColor = UIColor.gray.cgColor
-        wrapperCellView.layer.cornerRadius = 8.0
         wrapperCellView.translatesAutoresizingMaskIntoConstraints = false
+        wrapperCellView.backgroundColor = .customPeach
         self.addSubview(wrapperCellView)
 
     }
