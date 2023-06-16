@@ -26,6 +26,9 @@
 		58ABDF9A2A37AE76008FA2E6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF992A37AE76008FA2E6 /* Item.swift */; };
 		58E985F72A2F8F99005ECED6 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E985F62A2F8F99005ECED6 /* LoginPageView.swift */; };
 		58E985F92A2F8FCE005ECED6 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */; };
+		C92FA7AB2A2F6E5000110696 /* IntroPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */; };
+		C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AD2A2F729F00110696 /* CustomButton.swift */; };
+		C92FA7B02A2F76B800110696 /* ViewUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */; };
 		C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
@@ -55,6 +58,9 @@
 		58ABDF992A37AE76008FA2E6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		58E985F62A2F8F99005ECED6 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPageView.swift; sourceTree = "<group>"; };
+		C92FA7AD2A2F729F00110696 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilites.swift; sourceTree = "<group>"; };
 		C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		C9C637642A2C43DA003CD6D2 /* Imprima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Imprima-Regular.ttf"; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,10 +84,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C92FA7A92A2F6E1400110696 /* Intro Page */ = {
+			isa = PBXGroup;
+			children = (
+				C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */,
+			);
+			path = "Intro Page";
+			sourceTree = "<group>";
+		};
 		C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
 				C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */,
+				C92FA7AD2A2F729F00110696 /* CustomButton.swift */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -97,6 +112,7 @@
 		C9EF42CE2A26C5EA0037CEF4 = {
 			isa = PBXGroup;
 			children = (
+				C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */,
 				C9EF42D92A26C5EB0037CEF4 /* traveltrove */,
 				C9EF42D82A26C5EB0037CEF4 /* Products */,
 			);
@@ -121,6 +137,7 @@
 				58ABDF792A35CEF6008FA2E6 /* SignUpViewController.swift */,
 				58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */,
 				58E985F62A2F8F99005ECED6 /* LoginPageView.swift */,
+				C92FA7A92A2F6E1400110696 /* Intro Page */,
 				C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */,
 				C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */,
 				C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */,
@@ -238,7 +255,11 @@
 				58ABDF982A37AD77008FA2E6 /* ItemsTableViewCell.swift in Sources */,
 				58ABDF862A3611DF008FA2E6 /* ListTableViewCell.swift in Sources */,
 				58ABDF922A379373008FA2E6 /* List.swift in Sources */,
+				C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */,
+				C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */,
+				C92FA7AB2A2F6E5000110696 /* IntroPageView.swift in Sources */,
 				C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */,
+				C92FA7B02A2F76B800110696 /* ViewUtilites.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
