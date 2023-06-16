@@ -84,6 +84,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		582CE9012A3CD11C00B6CAC4 /* AllListsPage */ = {
+			isa = PBXGroup;
+			children = (
+				58ABDF892A361548008FA2E6 /* ListsView.swift */,
+				58ABDF852A3611DF008FA2E6 /* ListTableViewCell.swift */,
+				58ABDF8B2A361558008FA2E6 /* ListsViewController.swift */,
+			);
+			path = AllListsPage;
+			sourceTree = "<group>";
+		};
+		582CE9022A3CD13600B6CAC4 /* IndividualList */ = {
+			isa = PBXGroup;
+			children = (
+				58ABDF972A37AD77008FA2E6 /* ItemsTableViewCell.swift */,
+				58ABDF952A37A12F008FA2E6 /* SeeListViewController.swift */,
+				58ABDF932A37A116008FA2E6 /* SeeListView.swift */,
+			);
+			path = IndividualList;
+			sourceTree = "<group>";
+		};
+		582CE9032A3CD14A00B6CAC4 /* CreateNewDoc */ = {
+			isa = PBXGroup;
+			children = (
+				58ABDF7F2A35E113008FA2E6 /* DocsTableViewCell.swift */,
+				58ABDF8F2A377A71008FA2E6 /* NewDocView.swift */,
+				58ABDF8D2A377A5C008FA2E6 /* NewDocViewController.swift */,
+			);
+			path = CreateNewDoc;
+			sourceTree = "<group>";
+		};
+		582CE9042A3CD17A00B6CAC4 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				58ABDF872A3612D1008FA2E6 /* DifferentGroups.swift */,
+				58ABDF912A379373008FA2E6 /* List.swift */,
+				58ABDF992A37AE76008FA2E6 /* Item.swift */,
+				58ABDF832A35E3B0008FA2E6 /* Document.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		582CE9052A3CD1A300B6CAC4 /* ImportantDocsPage */ = {
+			isa = PBXGroup;
+			children = (
+				58ABDF7D2A35DEAE008FA2E6 /* ImportantDocsViewController.swift */,
+				58ABDF7B2A35DE91008FA2E6 /* ImportantDocumentsView.swift */,
+			);
+			path = ImportantDocsPage;
+			sourceTree = "<group>";
+		};
+		582CE9062A3CD1BA00B6CAC4 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				58E985F62A2F8F99005ECED6 /* LoginPageView.swift */,
+				58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		582CE9072A3CD20300B6CAC4 /* SignUpView */ = {
+			isa = PBXGroup;
+			children = (
+				58ABDF772A35CEDD008FA2E6 /* SignUpView.swift */,
+				58ABDF792A35CEF6008FA2E6 /* SignUpViewController.swift */,
+			);
+			path = SignUpView;
+			sourceTree = "<group>";
+		};
 		C92FA7A92A2F6E1400110696 /* Intro Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +180,6 @@
 		C9EF42CE2A26C5EA0037CEF4 = {
 			isa = PBXGroup;
 			children = (
-				C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */,
 				C9EF42D92A26C5EB0037CEF4 /* traveltrove */,
 				C9EF42D82A26C5EB0037CEF4 /* Products */,
 			);
@@ -129,17 +196,12 @@
 		C9EF42D92A26C5EB0037CEF4 /* traveltrove */ = {
 			isa = PBXGroup;
 			children = (
-				58ABDF992A37AE76008FA2E6 /* Item.swift */,
-				58ABDF972A37AD77008FA2E6 /* ItemsTableViewCell.swift */,
-				58ABDF912A379373008FA2E6 /* List.swift */,
-				58ABDF872A3612D1008FA2E6 /* DifferentGroups.swift */,
-				58ABDF772A35CEDD008FA2E6 /* SignUpView.swift */,
-				58ABDF792A35CEF6008FA2E6 /* SignUpViewController.swift */,
-				58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */,
-				58E985F62A2F8F99005ECED6 /* LoginPageView.swift */,
+				582CE9072A3CD20300B6CAC4 /* SignUpView */,
+				582CE9062A3CD1BA00B6CAC4 /* LoginPage */,
 				C92FA7A92A2F6E1400110696 /* Intro Page */,
 				C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */,
 				C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */,
+				C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */,
 				C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */,
 				C9EF42DE2A26C5EB0037CEF4 /* ViewController.swift */,
 				C9EF42E02A26C5EB0037CEF4 /* Main.storyboard */,
@@ -147,17 +209,11 @@
 				C9EF42E52A26C5EC0037CEF4 /* LaunchScreen.storyboard */,
 				C9EF42E82A26C5EC0037CEF4 /* Info.plist */,
 				C9C637632A2C43CE003CD6D2 /* Fonts */,
-				58ABDF7B2A35DE91008FA2E6 /* ImportantDocumentsView.swift */,
-				58ABDF7D2A35DEAE008FA2E6 /* ImportantDocsViewController.swift */,
-				58ABDF7F2A35E113008FA2E6 /* DocsTableViewCell.swift */,
-				58ABDF832A35E3B0008FA2E6 /* Document.swift */,
-				58ABDF852A3611DF008FA2E6 /* ListTableViewCell.swift */,
-				58ABDF892A361548008FA2E6 /* ListsView.swift */,
-				58ABDF8B2A361558008FA2E6 /* ListsViewController.swift */,
-				58ABDF8D2A377A5C008FA2E6 /* NewDocViewController.swift */,
-				58ABDF8F2A377A71008FA2E6 /* NewDocView.swift */,
-				58ABDF932A37A116008FA2E6 /* SeeListView.swift */,
-				58ABDF952A37A12F008FA2E6 /* SeeListViewController.swift */,
+				582CE9052A3CD1A300B6CAC4 /* ImportantDocsPage */,
+				582CE9042A3CD17A00B6CAC4 /* Data Models */,
+				582CE9012A3CD11C00B6CAC4 /* AllListsPage */,
+				582CE9032A3CD14A00B6CAC4 /* CreateNewDoc */,
+				582CE9022A3CD13600B6CAC4 /* IndividualList */,
 			);
 			path = traveltrove;
 			sourceTree = "<group>";
