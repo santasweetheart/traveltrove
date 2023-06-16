@@ -21,8 +21,17 @@ class ViewController: UIViewController {
 //            }
 //        }
 
-    }
-
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+                            barButtonSystemItem: .add, target: self,
+                            action: #selector(onAddBarButtonTapped)
+                    )
+                }
+            
+                @objc func onAddBarButtonTapped(){
+                    var login = ListsViewController()
+                    //var login = LoginPageViewController()
+                    navigationController?.pushViewController(login, animated: true)
+                }
 
 }
 

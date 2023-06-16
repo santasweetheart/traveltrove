@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58ABDF782A35CEDD008FA2E6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF772A35CEDD008FA2E6 /* SignUpView.swift */; };
+		58ABDF7A2A35CEF6008FA2E6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF792A35CEF6008FA2E6 /* SignUpViewController.swift */; };
+		58ABDF7C2A35DE91008FA2E6 /* ImportantDocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF7B2A35DE91008FA2E6 /* ImportantDocumentsView.swift */; };
+		58ABDF7E2A35DEAE008FA2E6 /* ImportantDocsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF7D2A35DEAE008FA2E6 /* ImportantDocsViewController.swift */; };
+		58ABDF802A35E113008FA2E6 /* DocsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF7F2A35E113008FA2E6 /* DocsTableViewCell.swift */; };
+		58ABDF842A35E3B0008FA2E6 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF832A35E3B0008FA2E6 /* Document.swift */; };
+		58ABDF862A3611DF008FA2E6 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF852A3611DF008FA2E6 /* ListTableViewCell.swift */; };
+		58ABDF882A3612D1008FA2E6 /* DifferentGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF872A3612D1008FA2E6 /* DifferentGroups.swift */; };
+		58ABDF8A2A361548008FA2E6 /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF892A361548008FA2E6 /* ListsView.swift */; };
+		58ABDF8C2A361558008FA2E6 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF8B2A361558008FA2E6 /* ListsViewController.swift */; };
+		58ABDF8E2A377A5C008FA2E6 /* NewDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF8D2A377A5C008FA2E6 /* NewDocViewController.swift */; };
+		58ABDF902A377A71008FA2E6 /* NewDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF8F2A377A71008FA2E6 /* NewDocView.swift */; };
+		58ABDF922A379373008FA2E6 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF912A379373008FA2E6 /* List.swift */; };
+		58ABDF942A37A116008FA2E6 /* SeeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF932A37A116008FA2E6 /* SeeListView.swift */; };
+		58ABDF962A37A12F008FA2E6 /* SeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF952A37A12F008FA2E6 /* SeeListViewController.swift */; };
+		58ABDF982A37AD77008FA2E6 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF972A37AD77008FA2E6 /* ItemsTableViewCell.swift */; };
+		58ABDF9A2A37AE76008FA2E6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ABDF992A37AE76008FA2E6 /* Item.swift */; };
 		58E985F72A2F8F99005ECED6 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E985F62A2F8F99005ECED6 /* LoginPageView.swift */; };
 		58E985F92A2F8FCE005ECED6 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */; };
 		C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */; };
@@ -19,6 +36,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58ABDF772A35CEDD008FA2E6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		58ABDF792A35CEF6008FA2E6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		58ABDF7B2A35DE91008FA2E6 /* ImportantDocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantDocumentsView.swift; sourceTree = "<group>"; };
+		58ABDF7D2A35DEAE008FA2E6 /* ImportantDocsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantDocsViewController.swift; sourceTree = "<group>"; };
+		58ABDF7F2A35E113008FA2E6 /* DocsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsTableViewCell.swift; sourceTree = "<group>"; };
+		58ABDF832A35E3B0008FA2E6 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		58ABDF852A3611DF008FA2E6 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		58ABDF872A3612D1008FA2E6 /* DifferentGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentGroups.swift; sourceTree = "<group>"; };
+		58ABDF892A361548008FA2E6 /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
+		58ABDF8B2A361558008FA2E6 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		58ABDF8D2A377A5C008FA2E6 /* NewDocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDocViewController.swift; sourceTree = "<group>"; };
+		58ABDF8F2A377A71008FA2E6 /* NewDocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDocView.swift; sourceTree = "<group>"; };
+		58ABDF912A379373008FA2E6 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		58ABDF932A37A116008FA2E6 /* SeeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeListView.swift; sourceTree = "<group>"; };
+		58ABDF952A37A12F008FA2E6 /* SeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeListViewController.swift; sourceTree = "<group>"; };
+		58ABDF972A37AD77008FA2E6 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
+		58ABDF992A37AE76008FA2E6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		58E985F62A2F8F99005ECED6 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
@@ -79,6 +113,12 @@
 		C9EF42D92A26C5EB0037CEF4 /* traveltrove */ = {
 			isa = PBXGroup;
 			children = (
+				58ABDF992A37AE76008FA2E6 /* Item.swift */,
+				58ABDF972A37AD77008FA2E6 /* ItemsTableViewCell.swift */,
+				58ABDF912A379373008FA2E6 /* List.swift */,
+				58ABDF872A3612D1008FA2E6 /* DifferentGroups.swift */,
+				58ABDF772A35CEDD008FA2E6 /* SignUpView.swift */,
+				58ABDF792A35CEF6008FA2E6 /* SignUpViewController.swift */,
 				58E985F82A2F8FCE005ECED6 /* LoginPageViewController.swift */,
 				58E985F62A2F8F99005ECED6 /* LoginPageView.swift */,
 				C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */,
@@ -90,6 +130,17 @@
 				C9EF42E52A26C5EC0037CEF4 /* LaunchScreen.storyboard */,
 				C9EF42E82A26C5EC0037CEF4 /* Info.plist */,
 				C9C637632A2C43CE003CD6D2 /* Fonts */,
+				58ABDF7B2A35DE91008FA2E6 /* ImportantDocumentsView.swift */,
+				58ABDF7D2A35DEAE008FA2E6 /* ImportantDocsViewController.swift */,
+				58ABDF7F2A35E113008FA2E6 /* DocsTableViewCell.swift */,
+				58ABDF832A35E3B0008FA2E6 /* Document.swift */,
+				58ABDF852A3611DF008FA2E6 /* ListTableViewCell.swift */,
+				58ABDF892A361548008FA2E6 /* ListsView.swift */,
+				58ABDF8B2A361558008FA2E6 /* ListsViewController.swift */,
+				58ABDF8D2A377A5C008FA2E6 /* NewDocViewController.swift */,
+				58ABDF8F2A377A71008FA2E6 /* NewDocView.swift */,
+				58ABDF932A37A116008FA2E6 /* SeeListView.swift */,
+				58ABDF952A37A12F008FA2E6 /* SeeListViewController.swift */,
 			);
 			path = traveltrove;
 			sourceTree = "<group>";
@@ -165,11 +216,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58ABDF962A37A12F008FA2E6 /* SeeListViewController.swift in Sources */,
 				C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */,
+				58ABDF8A2A361548008FA2E6 /* ListsView.swift in Sources */,
+				58ABDF8C2A361558008FA2E6 /* ListsViewController.swift in Sources */,
 				C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */,
+				58ABDF7E2A35DEAE008FA2E6 /* ImportantDocsViewController.swift in Sources */,
+				58ABDF9A2A37AE76008FA2E6 /* Item.swift in Sources */,
+				58ABDF7A2A35CEF6008FA2E6 /* SignUpViewController.swift in Sources */,
 				C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */,
+				58ABDF7C2A35DE91008FA2E6 /* ImportantDocumentsView.swift in Sources */,
+				58ABDF942A37A116008FA2E6 /* SeeListView.swift in Sources */,
+				58ABDF802A35E113008FA2E6 /* DocsTableViewCell.swift in Sources */,
+				58ABDF782A35CEDD008FA2E6 /* SignUpView.swift in Sources */,
+				58ABDF8E2A377A5C008FA2E6 /* NewDocViewController.swift in Sources */,
+				58ABDF842A35E3B0008FA2E6 /* Document.swift in Sources */,
+				58ABDF902A377A71008FA2E6 /* NewDocView.swift in Sources */,
+				58ABDF882A3612D1008FA2E6 /* DifferentGroups.swift in Sources */,
 				58E985F92A2F8FCE005ECED6 /* LoginPageViewController.swift in Sources */,
 				58E985F72A2F8F99005ECED6 /* LoginPageView.swift in Sources */,
+				58ABDF982A37AD77008FA2E6 /* ItemsTableViewCell.swift in Sources */,
+				58ABDF862A3611DF008FA2E6 /* ListTableViewCell.swift in Sources */,
+				58ABDF922A379373008FA2E6 /* List.swift in Sources */,
 				C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

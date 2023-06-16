@@ -19,7 +19,7 @@ class LoginPageView: UIView {
     
     override init(frame:CGRect) {
         super.init(frame: frame)
-        backgroundColor = .customPeach
+        backgroundColor = .customTan
         
         setupImage()
         setupWelcomeLabel()
