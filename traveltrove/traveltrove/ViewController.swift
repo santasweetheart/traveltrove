@@ -2,31 +2,23 @@
 //  ViewController.swift
 //  traveltrove
 //
-//  Created by Katherine on 5/30/23.
+//  Created by Santa on 5/30/23.
 //
-
 import UIKit
+import PhotosUI
 
 class ViewController: UIViewController {
 
-    let introscreen = IntroPageView()
-    
+    let screen = IndividualDocView()
+
     override func loadView() {
-        view = introscreen
+        view = screen
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        for family in UIFont.familyNames {
-//            print("Font family: \(family)")
-//            for fontName in UIFont.fontNames(forFamilyName: family) {
-//                print(" - Font name: \(fontName)")
-//            }
-//        }
-
     }
-
-
 }
+
 
