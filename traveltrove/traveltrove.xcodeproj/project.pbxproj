@@ -29,6 +29,7 @@
 		C92FA7AB2A2F6E5000110696 /* IntroPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */; };
 		C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AD2A2F729F00110696 /* CustomButton.swift */; };
 		C92FA7B02A2F76B800110696 /* ViewUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */; };
+		C9C52C872A3CD63A00603F8D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C9C52C862A3CD63A00603F8D /* .gitignore */; };
 		C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
@@ -61,6 +62,7 @@
 		C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPageView.swift; sourceTree = "<group>"; };
 		C92FA7AD2A2F729F00110696 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilites.swift; sourceTree = "<group>"; };
+		C9C52C862A3CD63A00603F8D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		C9C637642A2C43DA003CD6D2 /* Imprima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Imprima-Regular.ttf"; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +182,9 @@
 		C9EF42CE2A26C5EA0037CEF4 = {
 			isa = PBXGroup;
 			children = (
+
+				C9C52C862A3CD63A00603F8D /* .gitignore */,
+				C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */,
 				C9EF42D92A26C5EB0037CEF4 /* traveltrove */,
 				C9EF42D82A26C5EB0037CEF4 /* Products */,
 			);
@@ -276,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C52C872A3CD63A00603F8D /* .gitignore in Resources */,
 				C9EF42E72A26C5EC0037CEF4 /* LaunchScreen.storyboard in Resources */,
 				C9EF42E42A26C5EC0037CEF4 /* Assets.xcassets in Resources */,
 				C9EF42E22A26C5EB0037CEF4 /* Main.storyboard in Resources */,
