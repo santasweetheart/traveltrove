@@ -10,7 +10,6 @@ import UIKit
 class ImportantDocsViewController: UIViewController {
     let importantDocsView = ImportantDocumentsView()
     var documents = [Document]()
-    
     let notificationCenter = NotificationCenter.default
     
     override func loadView() {
@@ -24,17 +23,13 @@ class ImportantDocsViewController: UIViewController {
     
         importantDocsView.tableViewDocs.delegate = self
         importantDocsView.tableViewDocs.dataSource = self
-        
         importantDocsView.addButton.addTarget(self, action: #selector(onButtonSubmitTapped), for: .touchUpInside)
-        
-        
         
         notificationCenter.addObserver(
             self,
             selector: #selector(notificationReceivedForTextChanged(notification:)),
             name: Notification.Name("textFromFirstScreen"),
             object: nil)
-        //codes omitted...
     }
     
     @objc func notificationReceivedForTextChanged(notification: Notification){
@@ -52,6 +47,7 @@ class ImportantDocsViewController: UIViewController {
 }
 
 extension ImportantDocsViewController: UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return documents.count
     }
@@ -70,6 +66,5 @@ extension ImportantDocsViewController: UITableViewDelegate, UITableViewDataSourc
         }
         return cell
     }
-    
     
 }

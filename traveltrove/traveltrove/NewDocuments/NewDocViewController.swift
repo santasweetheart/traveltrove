@@ -19,8 +19,6 @@ class NewDocViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done, target: self,
                             action: #selector(onDoneBarButtonTapped)
@@ -29,11 +27,9 @@ class NewDocViewController: UIViewController {
         newDocView.buttonTakePhoto.menu = getMenuImagePicker()
     }
     
-
     @objc func onDoneBarButtonTapped(){
         if let name = newDocView.nameField.text, let note = newDocView.notesField.text{
             if !name.isEmpty && !note.isEmpty && pickedImage != nil {
-                //MARK: posting text to NotificationCenter...
                 notificationCenter.post(
                     name: Notification.Name("textFromFirstScreen"),
                     object: Document(title: name, note: note, image: self.pickedImage))
@@ -41,53 +37,47 @@ class NewDocViewController: UIViewController {
             }else{
                 showErrorAlert()
             }
-        } else {
-            
         }
     }
     
     func showErrorAlert(){
-            let alert = UIAlertController(title: "Error!", message: "Text Fields or Image are empty!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error!", message: "Text Fields or Image are empty!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
             
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            
-            self.present(alert, animated: true)
+        self.present(alert, animated: true)
     }
     
     func getMenuImagePicker() -> UIMenu{
-            var menuItems = [
-                UIAction(title: "Camera",handler: {(_) in
-                    self.pickUsingCamera()
-                }),
-                UIAction(title: "Gallery",handler: {(_) in
-                    self.pickPhotoFromGallery()
-                })
-            ]
-            
-            return UIMenu(title: "Select source", children: menuItems)
+        let menuItems = [
+            UIAction(title: "Camera",handler: {(_) in
+                self.pickUsingCamera()
+            }),
+            UIAction(title: "Gallery",handler: {(_) in
+                self.pickPhotoFromGallery()
+            })
+        ]
+        
+        return UIMenu(title: "Select source", children: menuItems)
     }
         
         
         //MARK: pick Photo using Gallery...
     func pickPhotoFromGallery(){
-            var configuration = PHPickerConfiguration()
-            configuration.filter = PHPickerFilter.any(of: [.images])
-            configuration.selectionLimit = 1
-            
-            let photoPicker = PHPickerViewController(configuration: configuration)
-            
-            photoPicker.delegate = self
-            present(photoPicker, animated: true, completion: nil)
+        var configuration = PHPickerConfiguration()
+        configuration.filter = PHPickerFilter.any(of: [.images])
+        configuration.selectionLimit = 1
+        let photoPicker = PHPickerViewController(configuration: configuration)
+        photoPicker.delegate = self
+        present(photoPicker, animated: true, completion: nil)
     }
     
     func pickUsingCamera(){
-            let cameraController = UIImagePickerController()
-            cameraController.sourceType = .camera
-            cameraController.allowsEditing = true
-            cameraController.delegate = self
-            present(cameraController, animated: true)
+        let cameraController = UIImagePickerController()
+        cameraController.sourceType = .camera
+        cameraController.allowsEditing = true
+        cameraController.delegate = self
+        present(cameraController, animated: true)
     }
-
 }
 
 
@@ -129,8 +119,6 @@ extension NewDocViewController: UINavigationControllerDelegate, UIImagePickerCon
             
         self.pickedImage = image
             
-        }else{
-            // Do your thing for No image loaded...
         }
     }
 }

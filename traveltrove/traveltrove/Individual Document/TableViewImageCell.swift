@@ -13,7 +13,7 @@ class TableViewImageCell: UITableViewCell {
 
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-          super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor =  .customTan
         setupWrapperCellView()
         setupProfileImage()
@@ -25,13 +25,10 @@ class TableViewImageCell: UITableViewCell {
         wrapperCellView.translatesAutoresizingMaskIntoConstraints = false
         wrapperCellView.backgroundColor = .clear
         self.addSubview(wrapperCellView)
-
     }
-
 
     func setupProfileImage(){
         profileImageView = UIImageView()
-        //circle.fill makes iot blue for some reason so I added the renderingMode to make it black
         profileImageView.image = UIImage(systemName: "rectangle.fill")?.withRenderingMode(.alwaysOriginal)
         profileImageView.contentMode = .scaleToFill
         profileImageView.clipsToBounds = true

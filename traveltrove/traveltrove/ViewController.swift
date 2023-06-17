@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         }
         
             @objc func onAddBarButtonTapped(){
-                var login = ListsViewController()
+                var login = SignUpViewController()
                 //var login = LoginPageViewController()
                 navigationController?.pushViewController(login, animated: true)
             }

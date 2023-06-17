@@ -29,7 +29,6 @@ class SignUpView: UIView {
     var photoLabel: UILabel!
     var buttonTakePhoto: UIButton!
     
-    
     override init(frame:CGRect) {
         super.init(frame: frame)
         backgroundColor = .customPeach
@@ -38,25 +37,17 @@ class SignUpView: UIView {
         setupdescriptionLabel()
         setupnameLabel()
         setupnameField()
-        
         setupemailLabel()
         setupemailField()
-        
         setupbirthLabel()
         setupbirthField()
-        
         setupUsernameLabel()
         setupUsernameField()
-        
         setuppassLabel()
         setuppassField()
-        
         setupPhotoLabel()
         setupbuttonTakePhoto()
-        
-        
         initConstraints()
-        
     }
     
     func setupjoinLabel() {
@@ -85,7 +76,6 @@ class SignUpView: UIView {
 
     func setupnameField() {
         nameField = UITextField()
-        //nameField.placeholder = "Name"
         nameField.borderStyle = .roundedRect
         nameField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(nameField)
@@ -147,6 +137,7 @@ class SignUpView: UIView {
     func setuppassField() {
         passField = UITextField()
         passField.borderStyle = .roundedRect
+        passField.isSecureTextEntry = true
         passField.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(passField)
     }
@@ -160,135 +151,71 @@ class SignUpView: UIView {
     }
     
     func setupbuttonTakePhoto(){
-            buttonTakePhoto = UIButton(type: .system)
-            buttonTakePhoto.setTitle("", for: .normal)
-            buttonTakePhoto.showsMenuAsPrimaryAction = true
-            buttonTakePhoto.setImage(UIImage(systemName: "camera.fill"), for: .normal)
-            buttonTakePhoto.tintColor = .black
-            buttonTakePhoto.contentHorizontalAlignment = .fill
-            buttonTakePhoto.contentVerticalAlignment = .fill
-            buttonTakePhoto.imageView?.contentMode = .scaleAspectFit
-            buttonTakePhoto.translatesAutoresizingMaskIntoConstraints = false
-            self.addSubview(buttonTakePhoto)
+        buttonTakePhoto = UIButton(type: .system)
+        buttonTakePhoto.setTitle("", for: .normal)
+        buttonTakePhoto.showsMenuAsPrimaryAction = true
+        buttonTakePhoto.setImage(UIImage(systemName: "camera.fill"), for: .normal)
+        buttonTakePhoto.tintColor = .black
+        buttonTakePhoto.contentHorizontalAlignment = .fill
+        buttonTakePhoto.contentVerticalAlignment = .fill
+        buttonTakePhoto.imageView?.contentMode = .scaleAspectFit
+        buttonTakePhoto.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(buttonTakePhoto)
     }
 
+    func initConstraints(){
+        NSLayoutConstraint.activate([
+            joinLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            joinLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: self.joinLabel.bottomAnchor, constant: 16),
+            descriptionLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            
+            nameLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 20),
+            nameLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
 
+            nameField.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 12),
+            nameField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            nameField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            emailLabel.topAnchor.constraint(equalTo: self.nameField.bottomAnchor, constant: 20),
+            emailLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            
+            emailField.topAnchor.constraint(equalTo: self.emailLabel.bottomAnchor, constant: 12),
+            emailField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            emailField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            birthLabel.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 20),
+            birthLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
 
-//MARK: initialize the constraints...
-func initConstraints(){
-    NSLayoutConstraint.activate([
-        joinLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-        joinLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0),
-        
-        descriptionLabel.topAnchor.constraint(equalTo: self.joinLabel.bottomAnchor, constant: 16),
-        //escriptionLabel.leadingAnchor.constraint(equalTo:
-          //                                          self.safeAreaLayoutGuide.leadingAnchor, constant:
-        //16),
-        descriptionLabel.centerXAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.centerXAnchor),
-        
-       // nameLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-        nameLabel.topAnchor.constraint(equalTo: self.descriptionLabel.bottomAnchor, constant: 20),
-        nameLabel.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
+            birthField.topAnchor.constraint(equalTo: self.birthLabel.bottomAnchor, constant: 12),
+            birthField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            birthField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            usernameLabel.topAnchor.constraint(equalTo: self.birthField.bottomAnchor, constant: 20),
+            usernameLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            
+            usernameField.topAnchor.constraint(equalTo: self.usernameLabel.bottomAnchor, constant: 12),
+            usernameField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            usernameField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            passLabel.topAnchor.constraint(equalTo: self.usernameField.bottomAnchor, constant: 20),
+            passLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
 
-        // buttonSend constraints...
-       
-        nameField.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 12),
-        nameField.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-        nameField.trailingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.trailingAnchor,
-        constant: -16),
-        
-        emailLabel.topAnchor.constraint(equalTo: self.nameField.bottomAnchor, constant: 20),
-        emailLabel.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
+            passField.topAnchor.constraint(equalTo: self.passLabel.bottomAnchor, constant: 12),
+            passField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            passField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            photoLabel.topAnchor.constraint(equalTo: self.passField.bottomAnchor, constant: 20),
+            photoLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            
+            buttonTakePhoto.topAnchor.constraint(equalTo: photoLabel.bottomAnchor, constant: 16),
+            buttonTakePhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            buttonTakePhoto.widthAnchor.constraint(equalToConstant: 100),
+            buttonTakePhoto.heightAnchor.constraint(equalToConstant: 100),
+        ])
+    }
 
-        // buttonSend constraints...
-       
-        emailField.topAnchor.constraint(equalTo: self.emailLabel.bottomAnchor, constant: 12),
-        emailField.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-        emailField.trailingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.trailingAnchor,
-        constant: -16),
-        
-        birthLabel.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 20),
-        birthLabel.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-
-        // buttonSend constraints...
-       
-        birthField.topAnchor.constraint(equalTo: self.birthLabel.bottomAnchor, constant: 12),
-        birthField.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-        birthField.trailingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.trailingAnchor,
-        constant: -16),
-        
-        usernameLabel.topAnchor.constraint(equalTo: self.birthField.bottomAnchor, constant: 20),
-        usernameLabel.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-
-        // buttonSend constraints...
-       
-        usernameField.topAnchor.constraint(equalTo: self.usernameLabel.bottomAnchor, constant: 12),
-        usernameField.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-        usernameField.trailingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.trailingAnchor,
-        constant: -16),
-        
-        passLabel.topAnchor.constraint(equalTo: self.usernameField.bottomAnchor, constant: 20),
-        passLabel.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-
-        // buttonSend constraints...
-       
-        passField.topAnchor.constraint(equalTo: self.passLabel.bottomAnchor, constant: 12),
-        passField.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-        passField.trailingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.trailingAnchor,
-        constant: -16),
-        
-        photoLabel.topAnchor.constraint(equalTo: self.passField.bottomAnchor, constant: 20),
-        photoLabel.leadingAnchor.constraint(equalTo:
-                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-        16),
-        
-        buttonTakePhoto.topAnchor.constraint(equalTo: photoLabel.bottomAnchor, constant: 16),
-        buttonTakePhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-        buttonTakePhoto.widthAnchor.constraint(equalToConstant: 100),
-        buttonTakePhoto.heightAnchor.constraint(equalToConstant: 100),
-
-        // buttonSend constraints...
-       
-//        passField.topAnchor.constraint(equalTo: self.passLabel.bottomAnchor, constant: 12),
-//        passField.leadingAnchor.constraint(equalTo:
-//                                                    self.safeAreaLayoutGuide.leadingAnchor, constant:
-//        16),
-//        passField.trailingAnchor.constraint(equalTo:
-//                                                    self.safeAreaLayoutGuide.trailingAnchor,
-//        constant: -16),
-
-    ])
-}
-
-
-
-    //MARK: unused methods...
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

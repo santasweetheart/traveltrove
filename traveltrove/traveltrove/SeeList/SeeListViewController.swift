@@ -8,7 +8,7 @@
 import UIKit
 
 class SeeListViewController: UIViewController {
-    var delegate: ListsViewController! //delegate to ViewController...
+    var delegate: ListsViewController!
     let seeLisView = SeeListView()
     var items = [Item]()
     let notificationCenter = NotificationCenter.default
@@ -20,7 +20,6 @@ class SeeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         seeLisView.tableViewItems.separatorStyle = .none
-        // Do any additional setup after loading the view
         seeLisView.tableViewItems.allowsMultipleSelection = true
         countTotal()
         seeLisView.tableViewItems.delegate = self
@@ -38,9 +37,6 @@ class SeeListViewController: UIViewController {
                     seeLisView.tableViewItems.reloadData()
                     seeLisView.nameField.text = ""
                     seeLisView.valueField.text = ""
-//                    notificationCenter.post(
-//                                   name: Notification.Name("textFromFirstScreen"),
-//                                   object: List(name: seeLisView.titleLabel.text, numItem: items.count, totalVal: String(countTotal())))
                     Static.lists[Static.lastNum].name = seeLisView.titleLabel.text
                     Static.lists[Static.lastNum].numItem =  items.count
                     Static.lists[Static.lastNum].totalVal = String(countTotal())
@@ -57,17 +53,13 @@ class SeeListViewController: UIViewController {
     
     func showNotDouble(){
         let alert = UIAlertController(title: "Error!", message: "Value field isn't a number", preferredStyle: .alert)
-        
         alert.addAction(UIAlertAction(title: "OK", style: .default))
-        
         self.present(alert, animated: true)
     }
 
     func showErrorAlert(){
         let alert = UIAlertController(title: "Error!", message: "Text Fields must not be empty!", preferredStyle: .alert)
-        
         alert.addAction(UIAlertAction(title: "OK", style: .default))
-        
         self.present(alert, animated: true)
     }
     
@@ -76,11 +68,9 @@ class SeeListViewController: UIViewController {
         for item in items {
             totalOfItems += item.totalVal!
         }
-        
         seeLisView.totalLabel.text = "$\(String(format: "%.2f", totalOfItems))"
         return totalOfItems
     }
-
 }
 
 extension SeeListViewController: UITableViewDelegate, UITableViewDataSource{
@@ -95,7 +85,6 @@ extension SeeListViewController: UITableViewDelegate, UITableViewDataSource{
             cell.labelTitle.text = uwName + " ($\(String(format: "%.2f", created)))"
         }
         
-        
         return cell
     }
     
@@ -107,20 +96,14 @@ extension SeeListViewController: UITableViewDelegate, UITableViewDataSource{
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
     }
     
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-//            notificationCenter.post(
-//                           name: Notification.Name("textFromFirstScreen"),
-//                           object: List(name: seeLisView.titleLabel.text, numItem: items.count, totalVal: String(countTotal())))
             Static.lists[Static.lastNum].name = seeLisView.titleLabel.text
             Static.lists[Static.lastNum].numItem =  items.count
             Static.lists[Static.lastNum].totalVal = String(countTotal())
             delegate.listsView.tableViewLists.reloadData()
-           
-            
         }
     }
 }

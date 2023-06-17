@@ -13,11 +13,9 @@ struct User {
     var email: String?
     var image: UIImage?
     
-    
     init(name: String? = nil, email: String? = nil, image:UIImage? = nil) {
         self.name = name
         self.email = email
         self.image = image
-        
     }
 }

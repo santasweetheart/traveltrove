@@ -59,36 +59,33 @@ class ListsView: UIView {
         self.addSubview(tableViewLists)
     }
         
-        //MARK: setting the constraints...
-        func initConstraints(){
-            NSLayoutConstraint.activate([
+    //MARK: setting the constraints...
+    func initConstraints(){
+        NSLayoutConstraint.activate([
+            contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
+            contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor ,constant: -60),
                 
-                contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
-                contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-                contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
-                contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor ,constant: -60),
+            tableViewLists.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
+            tableViewLists.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor),
+            tableViewLists.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor, constant: 8),
+            tableViewLists.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor, constant: -8),
+            tableViewLists.heightAnchor.constraint(equalTo: contentWrapper.heightAnchor),
                 
-                tableViewLists.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
-                tableViewLists.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor),
-                tableViewLists.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor, constant: 8),
-                tableViewLists.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor, constant: -8),
-                tableViewLists.heightAnchor.constraint(equalTo: contentWrapper.heightAnchor),
-                
-                nameField.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 15),
-                nameField.leadingAnchor.constraint(equalTo: self.tableViewLists.leadingAnchor),
-                nameField.trailingAnchor.constraint(equalTo: self.contentWrapper.trailingAnchor, constant: -100),
-                
-                saveButton.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 17),
-                saveButton.leadingAnchor.constraint(equalTo: self.nameField.trailingAnchor, constant: 10),
-                saveButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:  -10),
-                
-            ])
-        }
+            nameField.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 15),
+            nameField.leadingAnchor.constraint(equalTo: self.tableViewLists.leadingAnchor),
+            nameField.trailingAnchor.constraint(equalTo: self.contentWrapper.trailingAnchor, constant: -100),
+            
+            saveButton.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 17),
+            saveButton.leadingAnchor.constraint(equalTo: self.nameField.trailingAnchor, constant: 10),
+            saveButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:  -10),
+        ])
+    }
     
     //MARK: unused methods...
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
