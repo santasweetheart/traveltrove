@@ -39,11 +39,19 @@ class NewDocViewController: UIViewController {
                     object: Document(title: name, note: note, image: self.pickedImage))
                 navigationController?.popViewController(animated: true)
             }else{
-                //Alert invalid input...
+                showErrorAlert()
             }
         } else {
             
         }
+    }
+    
+    func showErrorAlert(){
+            let alert = UIAlertController(title: "Error!", message: "Text Fields or Image are empty!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            
+            self.present(alert, animated: true)
     }
     
     func getMenuImagePicker() -> UIMenu{

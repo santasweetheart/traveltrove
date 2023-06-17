@@ -8,11 +8,15 @@
 import UIKit
 
 class ListsViewController: UIViewController {
-    var lastSelection: NSIndexPath!
-    let listsView = ListsView()
-    var lists = [List]()
     
-    var listOwners = [DifferentGroups]()
+    var lastName = ""
+    let cell = ListTableViewCell()
+    var lastSelection: NSIndexPath!
+    var list = List(name: "", numItem: 0, totalVal: "0.00")
+    let listsView = ListsView()
+    //var lists = [List]()
+    let notificationCenter = NotificationCenter.default
+    //var listOwners = [DifferentGroups]()
     override func loadView() {
         view = listsView
     }
@@ -21,57 +25,86 @@ class ListsViewController: UIViewController {
         super.viewDidLoad()
         listsView.tableViewLists.separatorStyle = .none
         title = "Lists"
-        // Do any additional setup after loading the view.
-        lists.append(List(name: "Europe", createdBy: "Me", numItem: 1, totalVal: 2))
-        lists.append(List(name: "Europe", createdBy: "Me", numItem: 1, totalVal: 2))
-        
         
         listsView.tableViewLists.delegate = self
         listsView.tableViewLists.dataSource = self
-        
         listsView.saveButton.addTarget(self, action: #selector(onButtonSubmitTapped), for: .touchUpInside)
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(notificationReceivedForTextChanged(notification:)),
+            name: Notification.Name("textFromFirstScreen"),
+            object: nil)
+        listsView.tableViewLists.reloadData()
     }
     
-    @objc func onButtonSubmitTapped() {
-        lists.append(List(name: listsView.nameField.text, createdBy: "Me", numItem: 0, totalVal: 0.0))
+    //codes omitted...
+    @objc func notificationReceivedForTextChanged(notification: Notification){
+        list = (notification.object as! List)
         listsView.tableViewLists.reloadData()
-        listsView.nameField.text = ""
     }
+    
+    
+    
+    @objc func onButtonSubmitTapped() {
+        if let unwrappedMessage = listsView.nameField.text{
+            if !unwrappedMessage.isEmpty{
+                Static.lists.append(List(name: unwrappedMessage, numItem: 0, totalVal: String(format: "%.2f", 0)))
+                listsView.tableViewLists.reloadData()
+                listsView.nameField.text = ""
+            } else {
+                showErrorAlert()
+            }
+        }
+    }
+    
+    func showErrorAlert(){
+            let alert = UIAlertController(title: "Error!", message: "Text Field must not be empty!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            
+            self.present(alert, animated: true)
+        }
 
 }
+    
 
 extension ListsViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lists.count
+        return Static.lists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "lists", for: indexPath) as! ListTableViewCell
+        if let uwName = Static.lists[indexPath.row].name{
+            cell.labelTitle.text = uwName 
+            
+        }
         
-        if let uwName = lists[indexPath.row].name, let created = lists[indexPath.row].createdBy{
-            cell.labelTitle.text = uwName + " (Shared by \(created))"
-        }
-        if let uwItems = lists[indexPath.row].numItem{
-            cell.labelNumItems.text = "Total Number of Items: " + String(uwItems)
-        }
-        if let uwValue = lists[indexPath.row].totalVal{
-            cell.labelValue.text = "Total Value: $" + String(uwValue)
-        }
+            if let uwItems = Static.lists[indexPath.row].numItem{
+                cell.labelNumItems.text = "Total Number of Items: " + String(uwItems)
+            }
+            if let uwValue = Static.lists[indexPath.row].totalVal{
+                cell.labelValue.text = "Total Value: $" + uwValue
+            }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if self.lastSelection != nil {
-//            self.listsView.tableViewLists.cellForRowAtIndexPath(self.lastSelection)?.accessoryType = .None
-//            }
-//
-//            self.listsView.tableViewListscellForRowAtIndexPath(indexPath)?.accessoryType = .Checkmark
-//
-//            self.lastSelection = indexPath
-//
-//            self.myTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        //Static.name = Static.lists[indexPath.row].name!
+        Static.lastNum = indexPath.row
+//        Static.lastList = List(name: lists[indexPath.row].name!, numItem: lists[indexPath.row].numItem!,
+//                               totalVal: lists[indexPath.row].totalVal!)
         let seeListViewControl = SeeListViewController()
+        seeListViewControl.delegate = self
         navigationController?.pushViewController(seeListViewControl, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Static.lists.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }

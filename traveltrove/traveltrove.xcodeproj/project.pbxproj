@@ -19,7 +19,6 @@
 		582CE9322A3D1A2600B6CAC4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9182A3D1A2600B6CAC4 /* User.swift */; };
 		582CE9332A3D1A2600B6CAC4 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9192A3D1A2600B6CAC4 /* List.swift */; };
 		582CE9342A3D1A2600B6CAC4 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE91A2A3D1A2600B6CAC4 /* Document.swift */; };
-		582CE9352A3D1A2600B6CAC4 /* DifferentGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE91B2A3D1A2600B6CAC4 /* DifferentGroups.swift */; };
 		582CE9362A3D1A2600B6CAC4 /* NewDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE91D2A3D1A2600B6CAC4 /* NewDocView.swift */; };
 		582CE9372A3D1A2600B6CAC4 /* NewDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE91E2A3D1A2600B6CAC4 /* NewDocViewController.swift */; };
 		582CE9382A3D1A2600B6CAC4 /* IndividualDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9202A3D1A2600B6CAC4 /* IndividualDocView.swift */; };
@@ -64,7 +63,6 @@
 		582CE9182A3D1A2600B6CAC4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		582CE9192A3D1A2600B6CAC4 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		582CE91A2A3D1A2600B6CAC4 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		582CE91B2A3D1A2600B6CAC4 /* DifferentGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentGroups.swift; sourceTree = "<group>"; };
 		582CE91D2A3D1A2600B6CAC4 /* NewDocView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDocView.swift; sourceTree = "<group>"; };
 		582CE91E2A3D1A2600B6CAC4 /* NewDocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDocViewController.swift; sourceTree = "<group>"; };
 		582CE9202A3D1A2600B6CAC4 /* IndividualDocView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualDocView.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				582CE9182A3D1A2600B6CAC4 /* User.swift */,
 				582CE9192A3D1A2600B6CAC4 /* List.swift */,
 				582CE91A2A3D1A2600B6CAC4 /* Document.swift */,
-				582CE91B2A3D1A2600B6CAC4 /* DifferentGroups.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -177,6 +174,16 @@
 				582CE9272A3D1A2600B6CAC4 /* ItemsTableViewCell.swift */,
 			);
 			path = SeeList;
+			sourceTree = "<group>";
+		};
+		582CE9402A3E466D00B6CAC4 /* ImportantDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				582CE9232A3D1A2600B6CAC4 /* ImportantDocumentsView.swift */,
+				582CE9282A3D1A2600B6CAC4 /* ImportantDocsViewController.swift */,
+				582CE90F2A3D1A2600B6CAC4 /* DocsTableViewCell.swift */,
+			);
+			path = ImportantDocuments;
 			sourceTree = "<group>";
 		};
 		C92FA7A92A2F6E1400110696 /* Intro Page */ = {
@@ -233,13 +240,10 @@
 		C9EF42D92A26C5EB0037CEF4 /* traveltrove */ = {
 			isa = PBXGroup;
 			children = (
-				C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */,
 				C95A6B052A390F33007E3799 /* Individual Document */,
 				582CE90B2A3D1A2600B6CAC4 /* AllLists */,
 				582CE9162A3D1A2600B6CAC4 /* Data Models */,
-				582CE90F2A3D1A2600B6CAC4 /* DocsTableViewCell.swift */,
-				582CE9282A3D1A2600B6CAC4 /* ImportantDocsViewController.swift */,
-				582CE9232A3D1A2600B6CAC4 /* ImportantDocumentsView.swift */,
+				582CE9402A3E466D00B6CAC4 /* ImportantDocuments */,
 				582CE91F2A3D1A2600B6CAC4 /* Individual Document */,
 				582CE9102A3D1A2600B6CAC4 /* LoginPage */,
 				582CE91C2A3D1A2600B6CAC4 /* NewDocuments */,
@@ -249,6 +253,7 @@
 				C92FA7A92A2F6E1400110696 /* Intro Page */,
 				C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */,
 				C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */,
+				C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */,
 				C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */,
 				C9EF42DE2A26C5EB0037CEF4 /* ViewController.swift */,
 				C9EF42E02A26C5EB0037CEF4 /* Main.storyboard */,
@@ -364,7 +369,6 @@
 				582CE92D2A3D1A2600B6CAC4 /* LoginPageView.swift in Sources */,
 				C95A6B092A391640007E3799 /* IndividualDocViewController.swift in Sources */,
 				582CE93C2A3D1A2600B6CAC4 /* SeeListViewController.swift in Sources */,
-				582CE9352A3D1A2600B6CAC4 /* DifferentGroups.swift in Sources */,
 				582CE9392A3D1A2600B6CAC4 /* TableViewImageCell.swift in Sources */,
 				582CE93B2A3D1A2600B6CAC4 /* ImportantDocumentsView.swift in Sources */,
 				C95A6B072A390F73007E3799 /* IndividualDocView.swift in Sources */,

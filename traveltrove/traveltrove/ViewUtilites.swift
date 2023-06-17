@@ -16,6 +16,13 @@ import UIKit
     ///   - font: The font to be applied to the label's text.
     ///   - textColor: The color of the label's text.
     /// - Returns: A configured UILabel object.
+///
+    struct Static {
+        static var lists = [List]()
+        static var lastNum = 0
+        
+    }
+
     func createLabel(labelText: String, size: CGFloat, color: UIColor ) -> UILabel! {
         let label : UILabel! = UILabel()
         label.text = labelText

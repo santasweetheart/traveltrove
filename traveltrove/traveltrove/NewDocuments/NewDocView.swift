@@ -15,12 +15,13 @@ class NewDocView: UIView {
     
     var photoLabel: UILabel!
     var buttonTakePhoto: UIButton!
+    var contentWrapper:UIScrollView!
     
     
     override init(frame:CGRect) {
         super.init(frame: frame)
         backgroundColor = .customPeach
-        
+        setupContentWrapper()
         setupDocLabel()
         setupNameField()
         setupNotesField()
@@ -32,12 +33,18 @@ class NewDocView: UIView {
         
     }
     
+    func setupContentWrapper(){
+        contentWrapper = UIScrollView()
+        contentWrapper.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(contentWrapper)
+    }
+    
     func setupDocLabel() {
         docLabel = UILabel()
         docLabel.text = "Add a New Document"
         docLabel.font = UIFont.systemFont(ofSize: 20)
         docLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(docLabel)
+        contentWrapper.addSubview(docLabel)
     }
     
     func setupNameField() {
@@ -45,7 +52,7 @@ class NewDocView: UIView {
         nameField.placeholder = "Name"
         nameField.borderStyle = .roundedRect
         nameField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(nameField)
+        contentWrapper.addSubview(nameField)
     }
     
     
@@ -54,7 +61,7 @@ class NewDocView: UIView {
         notesField.placeholder = "Notes"
         notesField.borderStyle = .roundedRect
         notesField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(notesField)
+        contentWrapper.addSubview(notesField)
     }
     
     func setupPhotoLabel() {
@@ -62,7 +69,7 @@ class NewDocView: UIView {
         photoLabel.text = "Add a Photo:"
        // photoLabel.font = UIFont.systemFont(ofSize: 15)
         photoLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(photoLabel)
+        contentWrapper.addSubview(photoLabel)
     }
     
     func setupbuttonTakePhoto(){
@@ -75,7 +82,7 @@ class NewDocView: UIView {
             buttonTakePhoto.contentVerticalAlignment = .fill
             buttonTakePhoto.imageView?.contentMode = .scaleAspectFit
             buttonTakePhoto.translatesAutoresizingMaskIntoConstraints = false
-            self.addSubview(buttonTakePhoto)
+        contentWrapper.addSubview(buttonTakePhoto)
     }
 
 
@@ -83,9 +90,16 @@ class NewDocView: UIView {
 //MARK: initialize the constraints...
 func initConstraints(){
     NSLayoutConstraint.activate([
+        contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+        contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+        contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
+        contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor),
+        
         docLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-        //docLabel.bottomAnchor.constraint(equalTo: self.nameField.topAnchor, constant: -50),
-        docLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 150),
+        docLabel.topAnchor.constraint(equalTo: contentWrapper.topAnchor, constant: 150),
+        
+//        docLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+//        docLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 150),
        
         nameField.topAnchor.constraint(equalTo: self.docLabel.bottomAnchor, constant: 50),
         nameField.leadingAnchor.constraint(equalTo:
@@ -117,6 +131,7 @@ func initConstraints(){
         buttonTakePhoto.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
         buttonTakePhoto.widthAnchor.constraint(equalToConstant: 100),
         buttonTakePhoto.heightAnchor.constraint(equalToConstant: 100),
+        buttonTakePhoto.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor)
     ])
 }
 

@@ -19,15 +19,24 @@ class ImportantDocumentsView: UIView {
     let notificationCenter = NotificationCenter.default
     var tableViewDocs: UITableView!
     var addButton: UIButton!
+    var contentWrapper:UIScrollView!
     
     
     override init(frame:CGRect) {
         super.init(frame: frame)
-        backgroundColor = .customTan           
+        backgroundColor = .customTan
+        setupContentWrapper()
         setupButton()
         setupTableViewExpense()
         initConstraints()
     }
+    
+    func setupContentWrapper(){
+        contentWrapper = UIScrollView()
+        contentWrapper.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(contentWrapper)
+    }
+    
     func setupButton(){
         var config = UIButton.Configuration.filled()
         addButton = UIButton(type: .system)
@@ -59,13 +68,18 @@ class ImportantDocumentsView: UIView {
         //MARK: setting the constraints...
         func initConstraints(){
             NSLayoutConstraint.activate([
-                tableViewDocs.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
-                tableViewDocs.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -35),
-                tableViewDocs.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-                tableViewDocs.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+                contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+                contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+                contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
+                contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, constant: -55),
+                
+                tableViewDocs.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
+                tableViewDocs.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor),
+                tableViewDocs.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor, constant: 8),
+                tableViewDocs.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor, constant: -8),
                 
                 addButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-                addButton.topAnchor.constraint(equalTo: self.tableViewDocs.bottomAnchor, constant: 0)
+                addButton.topAnchor.constraint(equalTo: self.tableViewDocs.bottomAnchor, constant: 10)
             ])
         }
     

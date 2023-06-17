@@ -11,26 +11,30 @@ class SeeListView: UIView {
 
     var tableViewItems: UITableView!
     var titleLabel: UILabel!
-    var createdLabel: UILabel!
     var totalLabel: UILabel!
     var valueField: UITextField!
     var addButton: UIButton!
-    var addCollabButton: UIButton!
     var nameField: UITextField!
     var saveButton: UIButton!
+    var contentWrapper:UIScrollView!
     
     override init(frame:CGRect) {
         super.init(frame: frame)
         backgroundColor = .customTan
+        setupContentWrapper()
         setupTitleLabel()
-        setupCreatedByLabel()
         setupTotalLabel()
         setupNameField()
         setupValueField()
         setupSaveButton()
-        setupAddCollabButton()
         setupTableViewExpense()
         initConstraints()
+    }
+    
+    func setupContentWrapper(){
+        contentWrapper = UIScrollView()
+        contentWrapper.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(contentWrapper)
     }
 
     func setupSaveButton(){
@@ -42,17 +46,6 @@ class SeeListView: UIView {
         addButton.backgroundColor = .white
         addButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(addButton)
-    }
-    
-    func setupAddCollabButton(){
-        addCollabButton = UIButton(type: .system)
-        addCollabButton.setTitle("Add Collaborators", for: .normal)
-        addCollabButton.layer.cornerRadius = 5
-        addCollabButton.setTitleColor(.black, for: .normal)
-        addCollabButton.layer.borderColor = UIColor.black.cgColor
-        addCollabButton.backgroundColor = .white
-        addCollabButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(addCollabButton)
     }
     
     func setupNameField(){
@@ -79,15 +72,6 @@ class SeeListView: UIView {
         totalLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(totalLabel)
     }
-
-
-    func setupCreatedByLabel(){
-        createdLabel = UILabel()
-        createdLabel.text = "Created by (you or ___)"
-        createdLabel.font = UIFont.systemFont(ofSize: 15)
-        createdLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(createdLabel)
-    }
     
     func setupTitleLabel(){
         titleLabel = UILabel()
@@ -111,36 +95,31 @@ class SeeListView: UIView {
                 titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0),
                 titleLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
                 
-                createdLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 15),
-                createdLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-                
-                totalLabel.topAnchor.constraint(equalTo: self.createdLabel.bottomAnchor, constant: 15),
+                totalLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 15),
                 totalLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
                 
-                tableViewItems.topAnchor.constraint(equalTo: totalLabel.bottomAnchor, constant: 8),
-                tableViewItems.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -80),
-                tableViewItems.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-                tableViewItems.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+                contentWrapper.topAnchor.constraint(equalTo: totalLabel.bottomAnchor, constant: 8),
+                contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+                contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
+                contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, constant: -150),
                 
-               // addButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+                tableViewItems.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
+                tableViewItems.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor),
+                tableViewItems.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor, constant: 8),
+                tableViewItems.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor, constant: -8),
                 
-                nameField.topAnchor.constraint(equalTo: self.tableViewItems.bottomAnchor, constant: 10),
+                nameField.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 10),
                 nameField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
                 nameField.widthAnchor.constraint(equalToConstant: 200),
                 
                 
-                valueField.topAnchor.constraint(equalTo: self.tableViewItems.bottomAnchor, constant: 10),
+                valueField.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 10),
                 valueField.leadingAnchor.constraint(equalTo: self.nameField.trailingAnchor, constant: 10),
                 valueField.widthAnchor.constraint(equalToConstant: 100),
                 
-                addButton.topAnchor.constraint(equalTo: self.tableViewItems.bottomAnchor, constant: 12),
+                addButton.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 12),
                 addButton.leadingAnchor.constraint(equalTo: self.valueField.trailingAnchor, constant: 10),
                 addButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-                
-                addCollabButton.topAnchor.constraint(equalTo: self.addButton.bottomAnchor, constant: 10),
-                addCollabButton.leadingAnchor.constraint(equalTo: self.nameField.leadingAnchor),
-                addCollabButton.trailingAnchor.constraint(equalTo: self.addButton.trailingAnchor),
-                
             ])
         }
     

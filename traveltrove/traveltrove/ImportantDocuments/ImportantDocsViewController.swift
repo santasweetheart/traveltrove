@@ -21,9 +21,7 @@ class ImportantDocsViewController: UIViewController {
         super.viewDidLoad()
         importantDocsView.tableViewDocs.separatorStyle = .none
         title = "Important Documents"
-        // Do any additional setup after loading the view.
-        documents.append(Document(title: "Pixel 7 pro", note: "ds Pixel 7 pro Pixel 7 pro Pixel 7 pro Pixel 7 pro Pixel 7 pro Pixel 7 pro", image: (UIImage(systemName: "photo"))!))
-        documents.append(Document(title: "iPhone SE", note: "sd", image: (UIImage(systemName: "photo"))!))        
+    
         importantDocsView.tableViewDocs.delegate = self
         importantDocsView.tableViewDocs.dataSource = self
         
@@ -40,28 +38,16 @@ class ImportantDocsViewController: UIViewController {
     }
     
     @objc func notificationReceivedForTextChanged(notification: Notification){
-        print((notification.object as! Document).title)
-        print((notification.object as! Document).note)
         documents.append(Document(title: (notification.object as! Document).title!,
                                   note:(notification.object as! Document).note!,
                                   image: (notification.object as! Document).image))
         importantDocsView.tableViewDocs.reloadData()
     }
-    
 
     @objc func onButtonSubmitTapped() {
         let newDocView = NewDocViewController()
         navigationController?.pushViewController(newDocView, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -74,7 +60,7 @@ extension ImportantDocsViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "docs", for: indexPath) as! DocsTableViewCell
         
         if let uwNote = documents[indexPath.row].note{
-            cell.labelNote.text = "Notes: $\(uwNote)"
+            cell.labelNote.text = "Notes: \(uwNote)"
         }
         if let uwTitle = documents[indexPath.row].title{
             cell.labelTitle.text = uwTitle

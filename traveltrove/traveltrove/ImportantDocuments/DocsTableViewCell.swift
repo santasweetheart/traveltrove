@@ -11,31 +11,32 @@ class DocsTableViewCell: UITableViewCell {
     var wrapperCellView: UIView!
         var labelTitle: UILabel!
         var labelNote: UILabel!
-    var imageReceipt: UIImageView!
+        var imageReceipt: UIImageView!
     
     
         
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
+            self.selectionStyle = UITableViewCell.SelectionStyle.none
             backgroundColor = .customTan
             setupWrapperCellView()
-                    setupLabelTitle()
-                    setupLabelAmount()
+            setupLabelTitle()
+            setupLabelAmount()
             setupimageReceipt()
-                    initConstraints()
-                }
+            initConstraints()
+        }
                 
                 func setupWrapperCellView(){
                     wrapperCellView = UITableViewCell()
                         
                         //working with the shadows and colors...
-                        wrapperCellView.backgroundColor = .white
-                        wrapperCellView.layer.cornerRadius = 10.0
-                    wrapperCellView.layer.shadowColor = UIColor.lightGray.cgColor      //.gray.cgColor
-                        wrapperCellView.layer.shadowOffset = .zero
-                        wrapperCellView.layer.shadowRadius = 6.0
-                        wrapperCellView.layer.shadowOpacity = 0.7
-                        
+                    wrapperCellView.backgroundColor = .white
+                    wrapperCellView.layer.cornerRadius = 10.0
+//                    wrapperCellView.layer.shadowColor = UIColor.lightGray.cgColor      //.gray.cgColor
+//                        wrapperCellView.layer.shadowOffset = .zero
+//                        wrapperCellView.layer.shadowRadius = 6.0
+//                        wrapperCellView.layer.shadowOpacity = 0.7
+//
                         
                         wrapperCellView.translatesAutoresizingMaskIntoConstraints = false
                         self.addSubview(wrapperCellView)
@@ -62,15 +63,15 @@ class DocsTableViewCell: UITableViewCell {
                     wrapperCellView.addSubview(labelNote)
                 }
     
-    func setupimageReceipt(){
-        imageReceipt = UIImageView()
-        imageReceipt.image = UIImage(systemName: "photo")
-        imageReceipt.contentMode = .scaleToFill
-        imageReceipt.clipsToBounds = true
-        imageReceipt.layer.cornerRadius = 10
-        imageReceipt.translatesAutoresizingMaskIntoConstraints = false
-        wrapperCellView.addSubview(imageReceipt)
-    }
+        func setupimageReceipt(){
+            imageReceipt = UIImageView()
+            imageReceipt.image = UIImage(systemName: "photo")
+            imageReceipt.contentMode = .scaleToFill
+            imageReceipt.clipsToBounds = true
+            imageReceipt.layer.cornerRadius = 10
+            imageReceipt.translatesAutoresizingMaskIntoConstraints = false
+            wrapperCellView.addSubview(imageReceipt)
+        }
     
 
                 

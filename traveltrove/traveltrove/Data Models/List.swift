@@ -10,13 +10,11 @@ import UIKit
 
 struct List{
     var name: String?
-    var createdBy: String?
     var numItem: Int?
-    var totalVal: Double?
+    var totalVal: String?
     
-    init(name: String?, createdBy: String?, numItem: Int?, totalVal: Double?) {
+    init(name: String?, numItem: Int?, totalVal: String?) {
         self.name = name
-        self.createdBy = createdBy
         self.numItem = numItem
         self.totalVal = totalVal
     }

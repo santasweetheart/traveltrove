@@ -12,11 +12,13 @@ class ListsView: UIView {
     var tableViewLists: UITableView!
     var nameField: UITextField!
     var saveButton: UIButton!
+    var contentWrapper:UIScrollView!
     
     
     override init(frame:CGRect) {
         super.init(frame: frame)
         backgroundColor = .customTan
+        setupContentWrapper()
         setupSaveButton()
         setupTableViewExpense()
         setupNameField()
@@ -32,6 +34,13 @@ class ListsView: UIView {
         saveButton.backgroundColor = .white
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(saveButton)
+    }
+    
+    func setupContentWrapper(){
+        contentWrapper = UIScrollView()
+        //contentWrapper.backgroundColor = .black
+        contentWrapper.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(contentWrapper)
     }
 
     func setupNameField(){
@@ -53,19 +62,25 @@ class ListsView: UIView {
         //MARK: setting the constraints...
         func initConstraints(){
             NSLayoutConstraint.activate([
-                tableViewLists.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
-                tableViewLists.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
-                tableViewLists.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-                tableViewLists.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
                 
-               // addButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-                nameField.topAnchor.constraint(equalTo: self.tableViewLists.bottomAnchor, constant: 0),
+                contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+                contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+                contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
+                contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor ,constant: -60),
+                
+                tableViewLists.topAnchor.constraint(equalTo: contentWrapper.topAnchor),
+                tableViewLists.bottomAnchor.constraint(equalTo: contentWrapper.bottomAnchor),
+                tableViewLists.leadingAnchor.constraint(equalTo: contentWrapper.leadingAnchor, constant: 8),
+                tableViewLists.trailingAnchor.constraint(equalTo: contentWrapper.trailingAnchor, constant: -8),
+                tableViewLists.heightAnchor.constraint(equalTo: contentWrapper.heightAnchor),
+                
+                nameField.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 15),
                 nameField.leadingAnchor.constraint(equalTo: self.tableViewLists.leadingAnchor),
-                nameField.trailingAnchor.constraint(equalTo: self.tableViewLists.trailingAnchor, constant: -100),
+                nameField.trailingAnchor.constraint(equalTo: self.contentWrapper.trailingAnchor, constant: -100),
                 
-                saveButton.topAnchor.constraint(equalTo: self.tableViewLists.bottomAnchor, constant: 2),
+                saveButton.topAnchor.constraint(equalTo: self.contentWrapper.bottomAnchor, constant: 17),
                 saveButton.leadingAnchor.constraint(equalTo: self.nameField.trailingAnchor, constant: 10),
-                saveButton.trailingAnchor.constraint(equalTo: self.tableViewLists.trailingAnchor),
+                saveButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant:  -10),
                 
             ])
         }
