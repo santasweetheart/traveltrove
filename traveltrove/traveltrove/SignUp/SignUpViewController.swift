@@ -45,7 +45,7 @@ class SignUpViewController: UIViewController {
                     //MARK: the user creation is successful...
                     let collectionContacts = self.database
                                     .collection("users")
-                                    .document(email)
+                                    .document(email.lowercased())
                                     .setData(["name" : name, "email" : email, "birthdate" : birthdate,
                                               "username" : username, "password" : password])
                     let landingPage = LandingPageViewController()

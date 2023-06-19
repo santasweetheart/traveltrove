@@ -31,7 +31,7 @@ class ListsViewController: UIViewController {
             print()
             self.currentUser = user
             self.database.collection("users")
-                .document("Hi@gmail.com")
+                .document((user?.email)!) //user?.email)!.lowercased()
                 .collection("lists")
                 .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                     print("Test 2")
@@ -52,11 +52,11 @@ class ListsViewController: UIViewController {
                 })
             print("Test 3")
         }
+        listsView.tableViewLists.reloadData()
         
         listsView.tableViewLists.delegate = self
         listsView.tableViewLists.dataSource = self
         listsView.saveButton.addTarget(self, action: #selector(onButtonSubmitTapped), for: .touchUpInside)
-        listsView.tableViewLists.reloadData()
     }
     
     @objc func onButtonSubmitTapped() {
@@ -64,7 +64,7 @@ class ListsViewController: UIViewController {
             if !unwrappedMessage.isEmpty{
                 Static.lists.append(List(name: unwrappedMessage, numItem: 0, totalVal: String(format: "%.2f", 0)))
                 self.database.collection("users")
-                    .document("Hi@gmail.com")
+                    .document((self.currentUser?.email)!.lowercased())
                     .collection("lists")
                     .document(unwrappedMessage)
                     .setData(["name":unwrappedMessage, "numItem":0, "totalVal":String(format: "%.2f", 0)])
@@ -78,7 +78,7 @@ class ListsViewController: UIViewController {
         }
     }
     
-    func showErrorAlert(){
+    func showErrorAlert() {
         let alert = UIAlertController(title: "Error!", message: "Text Field must not be empty!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
@@ -115,10 +115,18 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource{
         navigationController?.pushViewController(seeListViewControl, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt
+                   indexPath: IndexPath) {
         if editingStyle == .delete {
+            self.database.collection("users")
+                .document((self.currentUser?.email)!.lowercased())
+                .collection("lists")
+                .document(Static.lists[indexPath.row].name)
+                .delete()
             Static.lists.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
+        
     }
 }

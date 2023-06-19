@@ -27,23 +27,23 @@ class SeeListViewController: UIViewController {
         super.viewDidLoad()
         seeLisView.tableViewItems.separatorStyle = .none
         seeLisView.tableViewItems.allowsMultipleSelection = true
-        countTotal()
         handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
             print()
             self.currentUser = user
             self.database.collection("users")
-                .document("Hi@gmail.com")
+                .document((user?.email)!.lowercased())
                 .collection("lists")
                 .document(self.seeLisView.titleLabel.text!)
                 .collection("items")
                 .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                     print("Test 2")
                     if let documents = querySnapshot?.documents{
-                        Static.lists.removeAll()
+                        self.items.removeAll()
                         for document in documents{
                             do{
                                 let item  = try document.data(as: Item.self)
-                                //Static.lists[Static.lastNum]. = item.name
+                                self.items.append(item)
+                                self.countTotal()
                               //  print(list.name)
                             }catch{
                                 print(error)
@@ -71,13 +71,13 @@ class SeeListViewController: UIViewController {
                     seeLisView.nameField.text = ""
                     seeLisView.valueField.text = ""
                     self.database.collection("users")
-                        .document("Hi@gmail.com")
+                        .document((self.currentUser?.email)!.lowercased())
                         .collection("lists")
                         .document(seeLisView.titleLabel.text!)
                         .collection("items")
                         .document(unwrappedMessage)
                         .setData(["name" : unwrappedMessage, "totalVal" : doubl])
-                    //Static.lists[Static.lastNum].name = seeLisView.titleLabel.text
+                    Static.lists[Static.lastNum].name = seeLisView.titleLabel.text!
                     Static.lists[Static.lastNum].numItem =  items.count
                     Static.lists[Static.lastNum].totalVal = String(countTotal())
                     delegate.listsView.tableViewLists.reloadData()
@@ -108,6 +108,11 @@ class SeeListViewController: UIViewController {
             totalOfItems += item.totalVal
         }
         seeLisView.totalLabel.text = "$\(String(format: "%.2f", totalOfItems))"
+        self.database.collection("users")
+            .document((self.currentUser?.email)!.lowercased())
+            .collection("lists")
+            .document(seeLisView.titleLabel.text!)
+            .setData(["name" : seeLisView.titleLabel.text, "numItem" : items.count, "totalVal" : "\(String(format: "%.2f", totalOfItems))"])
         return totalOfItems
     }
 }
@@ -139,12 +144,26 @@ extension SeeListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            print("TEST")
+            print(Static.lists[indexPath.row].name)
+            self.database.collection("users")
+                .document((self.currentUser?.email)!.lowercased())
+                .collection("lists")
+                .document(seeLisView.titleLabel.text!)
+                .collection("items")
+                .document(items[indexPath.row].name)            //items[indexPath.row].name)
+                .delete()
+            
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            //Static.lists[Static.lastNum].name = seeLisView.titleLabel.text
+            Static.lists[Static.lastNum].name = seeLisView.titleLabel.text!
             Static.lists[Static.lastNum].numItem =  items.count
             Static.lists[Static.lastNum].totalVal = String(countTotal())
             delegate.listsView.tableViewLists.reloadData()
+            
+            
         }
+        
+        
     }
 }
