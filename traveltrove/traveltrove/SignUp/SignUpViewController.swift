@@ -35,7 +35,6 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func landingButtonSubmitTapped(){
-        //MARK: creating a new user on Firebase with photo...
             showActivityIndicator()
             uploadProfilePhotoToStorage()
     }
