@@ -41,6 +41,9 @@
 		C9C52C972A3D1C2200603F8D /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C52C962A3D1C2200603F8D /* LandingPageView.swift */; };
 		C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */; };
 		C9ED14A62A4086A4002F5186 /* SignUpFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14A52A4086A4002F5186 /* SignUpFirebaseManager.swift */; };
+		C9ED14A92A40A60D002F5186 /* ProgressSpinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14A82A40A60D002F5186 /* ProgressSpinnerDelegate.swift */; };
+		C9ED14AB2A40A61C002F5186 /* ProgressSpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14AA2A40A61C002F5186 /* ProgressSpinnerViewController.swift */; };
+		C9ED14AD2A40A6D8002F5186 /* SignUpProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14AC2A40A6D8002F5186 /* SignUpProgressIndicatorManager.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
 		C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DE2A26C5EB0037CEF4 /* ViewController.swift */; };
@@ -81,6 +84,9 @@
 		C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		C9C637642A2C43DA003CD6D2 /* Imprima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Imprima-Regular.ttf"; sourceTree = "<group>"; };
 		C9ED14A52A4086A4002F5186 /* SignUpFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirebaseManager.swift; sourceTree = "<group>"; };
+		C9ED14A82A40A60D002F5186 /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
+		C9ED14AA2A40A61C002F5186 /* ProgressSpinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerViewController.swift; sourceTree = "<group>"; };
+		C9ED14AC2A40A6D8002F5186 /* SignUpProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 				582CE9142A3D1A2600B6CAC4 /* SignUpViewController.swift */,
 				582CE9152A3D1A2600B6CAC4 /* SignUpView.swift */,
 				C9ED14A52A4086A4002F5186 /* SignUpFirebaseManager.swift */,
+				C9ED14AC2A40A6D8002F5186 /* SignUpProgressIndicatorManager.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -219,6 +226,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		C9ED14A72A40A1CF002F5186 /* Progress Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED14A82A40A60D002F5186 /* ProgressSpinnerDelegate.swift */,
+				C9ED14AA2A40A61C002F5186 /* ProgressSpinnerViewController.swift */,
+			);
+			path = "Progress Indicator";
+			sourceTree = "<group>";
+		};
 		C9EF42CE2A26C5EA0037CEF4 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +254,7 @@
 		C9EF42D92A26C5EB0037CEF4 /* traveltrove */ = {
 			isa = PBXGroup;
 			children = (
+				C9ED14A72A40A1CF002F5186 /* Progress Indicator */,
 				C9C52C952A3D1BFC00603F8D /* Landing Page */,
 				C95A6B052A390F33007E3799 /* Individual Document */,
 				582CE90B2A3D1A2600B6CAC4 /* AllLists */,
@@ -354,6 +371,7 @@
 				582CE9362A3D1A2600B6CAC4 /* NewDocView.swift in Sources */,
 				C9ED14A62A4086A4002F5186 /* SignUpFirebaseManager.swift in Sources */,
 				582CE93F2A3D1A2600B6CAC4 /* ImportantDocsViewController.swift in Sources */,
+				C9ED14A92A40A60D002F5186 /* ProgressSpinnerDelegate.swift in Sources */,
 				C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */,
 				582CE92F2A3D1A2600B6CAC4 /* SignUpViewController.swift in Sources */,
 				582CE92A2A3D1A2600B6CAC4 /* ListsView.swift in Sources */,
@@ -362,6 +380,7 @@
 				582CE9322A3D1A2600B6CAC4 /* User.swift in Sources */,
 				C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */,
 				582CE92D2A3D1A2600B6CAC4 /* LoginPageView.swift in Sources */,
+				C9ED14AB2A40A61C002F5186 /* ProgressSpinnerViewController.swift in Sources */,
 				C95A6B092A391640007E3799 /* IndividualDocViewController.swift in Sources */,
 				582CE93C2A3D1A2600B6CAC4 /* SeeListViewController.swift in Sources */,
 				582CE93B2A3D1A2600B6CAC4 /* ImportantDocumentsView.swift in Sources */,
@@ -371,6 +390,7 @@
 				582CE9432A40514700B6CAC4 /* LandingPageViewController.swift in Sources */,
 				C9C52C972A3D1C2200603F8D /* LandingPageView.swift in Sources */,
 				C9C52C892A3CE94D00603F8D /* TableViewImageCell.swift in Sources */,
+				C9ED14AD2A40A6D8002F5186 /* SignUpProgressIndicatorManager.swift in Sources */,
 				582CE9312A3D1A2600B6CAC4 /* Item.swift in Sources */,
 				582CE92E2A3D1A2600B6CAC4 /* LoginPageViewController.swift in Sources */,
 				C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */,

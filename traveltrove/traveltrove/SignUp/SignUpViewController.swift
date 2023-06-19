@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
     var pickedImage:UIImage?
     let database = Firestore.firestore()
     let storage = Storage.storage()
+    let childProgressView = ProgressSpinnerViewController()
     
     override func loadView() {
         view = signUpView
