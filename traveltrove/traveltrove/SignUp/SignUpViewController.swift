@@ -7,11 +7,15 @@
 
 import UIKit
 import PhotosUI
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class SignUpViewController: UIViewController {
 
     let signUpView = SignUpView()
     var pickedImage:UIImage?
+    let database = Firestore.firestore()
     
     override func loadView() {
         view = signUpView
@@ -22,13 +26,36 @@ class SignUpViewController: UIViewController {
         signUpView.buttonTakePhoto.menu = getMenuImagePicker()
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done, target: self,
-                            action: #selector(onDoneBarButtonTapped)
+                            action: #selector(landingButtonSubmitTapped)
                     )
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
     
-    @objc func onDoneBarButtonTapped(){
-        
+    @objc func landingButtonSubmitTapped(){
+        //MARK: create a Firebase user with email and password...
+        if let name = signUpView.nameField.text,
+           let email = signUpView.emailField.text,
+           let password = signUpView.passField.text,
+           let birthdate = signUpView.birthField.text,
+           let username = signUpView.emailField.text,
+           let password = signUpView.passField.text{
+            //Validations....
+            Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
+                if error == nil{
+                    //MARK: the user creation is successful...
+                    let collectionContacts = self.database
+                                    .collection("users")
+                                    .document(email)
+                                    .setData(["name" : name, "email" : email, "birthdate" : birthdate,
+                                              "username" : username, "password" : password])
+                    let landingPage = LandingPageViewController()
+                    self.navigationController?.pushViewController(landingPage, animated: true)
+                }else{
+                    //MARK: there is a error creating the user...
+                    print(error)
+                }
+            })
+        }
     }
     
     func getMenuImagePicker() -> UIMenu{

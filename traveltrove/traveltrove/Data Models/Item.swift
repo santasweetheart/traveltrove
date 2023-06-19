@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Item{
-    var name: String?
-    var totalVal: Double?
+struct Item: Codable{
+    var name: String
+    var totalVal: Double
     
-    init(name: String?, totalVal: Double?) {
+    init(name: String, totalVal: Double) {
         self.name = name
         self.totalVal = totalVal
     }
