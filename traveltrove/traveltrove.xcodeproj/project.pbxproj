@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582CE9292A3D1A2600B6CAC4 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE90C2A3D1A2600B6CAC4 /* ListTableViewCell.swift */; };
+		582CE92A2A3D1A2600B6CAC4 /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE90D2A3D1A2600B6CAC4 /* ListsView.swift */; };
+		582CE92B2A3D1A2600B6CAC4 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE90E2A3D1A2600B6CAC4 /* ListsViewController.swift */; };
+		582CE92C2A3D1A2600B6CAC4 /* DocsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE90F2A3D1A2600B6CAC4 /* DocsTableViewCell.swift */; };
+		582CE92D2A3D1A2600B6CAC4 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9112A3D1A2600B6CAC4 /* LoginPageView.swift */; };
+		582CE92E2A3D1A2600B6CAC4 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9122A3D1A2600B6CAC4 /* LoginPageViewController.swift */; };
+		582CE92F2A3D1A2600B6CAC4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9142A3D1A2600B6CAC4 /* SignUpViewController.swift */; };
+		582CE9302A3D1A2600B6CAC4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9152A3D1A2600B6CAC4 /* SignUpView.swift */; };
+		582CE9312A3D1A2600B6CAC4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9172A3D1A2600B6CAC4 /* Item.swift */; };
+		582CE9322A3D1A2600B6CAC4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9182A3D1A2600B6CAC4 /* User.swift */; };
+		582CE9332A3D1A2600B6CAC4 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9192A3D1A2600B6CAC4 /* List.swift */; };
+		582CE9342A3D1A2600B6CAC4 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE91A2A3D1A2600B6CAC4 /* Document.swift */; };
+		582CE9362A3D1A2600B6CAC4 /* NewDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE91D2A3D1A2600B6CAC4 /* NewDocView.swift */; };
+		582CE9372A3D1A2600B6CAC4 /* NewDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE91E2A3D1A2600B6CAC4 /* NewDocViewController.swift */; };
+		582CE93B2A3D1A2600B6CAC4 /* ImportantDocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9232A3D1A2600B6CAC4 /* ImportantDocumentsView.swift */; };
+		582CE93C2A3D1A2600B6CAC4 /* SeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9252A3D1A2600B6CAC4 /* SeeListViewController.swift */; };
+		582CE93D2A3D1A2600B6CAC4 /* SeeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9262A3D1A2600B6CAC4 /* SeeListView.swift */; };
+		582CE93E2A3D1A2600B6CAC4 /* ItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9272A3D1A2600B6CAC4 /* ItemsTableViewCell.swift */; };
+		582CE93F2A3D1A2600B6CAC4 /* ImportantDocsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CE9282A3D1A2600B6CAC4 /* ImportantDocsViewController.swift */; };
 		C92FA7AB2A2F6E5000110696 /* IntroPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */; };
 		C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AD2A2F729F00110696 /* CustomButton.swift */; };
 		C92FA7B02A2F76B800110696 /* ViewUtilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */; };
@@ -30,6 +49,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		582CE90C2A3D1A2600B6CAC4 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		582CE90D2A3D1A2600B6CAC4 /* ListsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
+		582CE90E2A3D1A2600B6CAC4 /* ListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		582CE90F2A3D1A2600B6CAC4 /* DocsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocsTableViewCell.swift; sourceTree = "<group>"; };
+		582CE9112A3D1A2600B6CAC4 /* LoginPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
+		582CE9122A3D1A2600B6CAC4 /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		582CE9142A3D1A2600B6CAC4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		582CE9152A3D1A2600B6CAC4 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		582CE9172A3D1A2600B6CAC4 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		582CE9182A3D1A2600B6CAC4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		582CE9192A3D1A2600B6CAC4 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		582CE91A2A3D1A2600B6CAC4 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		582CE91D2A3D1A2600B6CAC4 /* NewDocView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDocView.swift; sourceTree = "<group>"; };
+		582CE91E2A3D1A2600B6CAC4 /* NewDocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDocViewController.swift; sourceTree = "<group>"; };
+		582CE9232A3D1A2600B6CAC4 /* ImportantDocumentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantDocumentsView.swift; sourceTree = "<group>"; };
+		582CE9252A3D1A2600B6CAC4 /* SeeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeListViewController.swift; sourceTree = "<group>"; };
+		582CE9262A3D1A2600B6CAC4 /* SeeListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeListView.swift; sourceTree = "<group>"; };
+		582CE9272A3D1A2600B6CAC4 /* ItemsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableViewCell.swift; sourceTree = "<group>"; };
+		582CE9282A3D1A2600B6CAC4 /* ImportantDocsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantDocsViewController.swift; sourceTree = "<group>"; };
 		C92FA7AA2A2F6E5000110696 /* IntroPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPageView.swift; sourceTree = "<group>"; };
 		C92FA7AD2A2F729F00110696 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtilites.swift; sourceTree = "<group>"; };
@@ -66,6 +104,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		582CE90B2A3D1A2600B6CAC4 /* AllLists */ = {
+			isa = PBXGroup;
+			children = (
+				582CE90C2A3D1A2600B6CAC4 /* ListTableViewCell.swift */,
+				582CE90D2A3D1A2600B6CAC4 /* ListsView.swift */,
+				582CE90E2A3D1A2600B6CAC4 /* ListsViewController.swift */,
+			);
+			path = AllLists;
+			sourceTree = "<group>";
+		};
+		582CE9102A3D1A2600B6CAC4 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				582CE9112A3D1A2600B6CAC4 /* LoginPageView.swift */,
+				582CE9122A3D1A2600B6CAC4 /* LoginPageViewController.swift */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		582CE9132A3D1A2600B6CAC4 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				582CE9142A3D1A2600B6CAC4 /* SignUpViewController.swift */,
+				582CE9152A3D1A2600B6CAC4 /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		582CE9162A3D1A2600B6CAC4 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				582CE9172A3D1A2600B6CAC4 /* Item.swift */,
+				582CE9182A3D1A2600B6CAC4 /* User.swift */,
+				582CE9192A3D1A2600B6CAC4 /* List.swift */,
+				582CE91A2A3D1A2600B6CAC4 /* Document.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		582CE91C2A3D1A2600B6CAC4 /* NewDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				582CE91D2A3D1A2600B6CAC4 /* NewDocView.swift */,
+				582CE91E2A3D1A2600B6CAC4 /* NewDocViewController.swift */,
+			);
+			path = NewDocuments;
+			sourceTree = "<group>";
+		};
+		582CE9242A3D1A2600B6CAC4 /* SeeList */ = {
+			isa = PBXGroup;
+			children = (
+				582CE9252A3D1A2600B6CAC4 /* SeeListViewController.swift */,
+				582CE9262A3D1A2600B6CAC4 /* SeeListView.swift */,
+				582CE9272A3D1A2600B6CAC4 /* ItemsTableViewCell.swift */,
+			);
+			path = SeeList;
+			sourceTree = "<group>";
+		};
+		582CE9402A3E466D00B6CAC4 /* ImportantDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				582CE9232A3D1A2600B6CAC4 /* ImportantDocumentsView.swift */,
+				582CE9282A3D1A2600B6CAC4 /* ImportantDocsViewController.swift */,
+				582CE90F2A3D1A2600B6CAC4 /* DocsTableViewCell.swift */,
+			);
+			path = ImportantDocuments;
+			sourceTree = "<group>";
+		};
 		C92FA7A92A2F6E1400110696 /* Intro Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,8 +218,6 @@
 		C9EF42CE2A26C5EA0037CEF4 = {
 			isa = PBXGroup;
 			children = (
-				C9C52C862A3CD63A00603F8D /* .gitignore */,
-				C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */,
 				C9EF42D92A26C5EB0037CEF4 /* traveltrove */,
 				C9EF42D82A26C5EB0037CEF4 /* Products */,
 			);
@@ -132,9 +236,18 @@
 			children = (
 				C9C52C952A3D1BFC00603F8D /* Landing Page */,
 				C95A6B052A390F33007E3799 /* Individual Document */,
+				582CE90B2A3D1A2600B6CAC4 /* AllLists */,
+				582CE9162A3D1A2600B6CAC4 /* Data Models */,
+				582CE9402A3E466D00B6CAC4 /* ImportantDocuments */,
+				582CE9102A3D1A2600B6CAC4 /* LoginPage */,
+				582CE91C2A3D1A2600B6CAC4 /* NewDocuments */,
+				582CE9242A3D1A2600B6CAC4 /* SeeList */,
+				582CE9132A3D1A2600B6CAC4 /* SignUp */,
+				C9C52C862A3CD63A00603F8D /* .gitignore */,
 				C92FA7A92A2F6E1400110696 /* Intro Page */,
 				C9C6375A2A2C3C6A003CD6D2 /* Custom Elements */,
 				C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */,
+				C92FA7AF2A2F76B800110696 /* ViewUtilites.swift */,
 				C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */,
 				C9EF42DE2A26C5EB0037CEF4 /* ViewController.swift */,
 				C9EF42E02A26C5EB0037CEF4 /* Main.storyboard */,
@@ -229,16 +342,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582CE9292A3D1A2600B6CAC4 /* ListTableViewCell.swift in Sources */,
 				C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */,
+				582CE9332A3D1A2600B6CAC4 /* List.swift in Sources */,
+				582CE92C2A3D1A2600B6CAC4 /* DocsTableViewCell.swift in Sources */,
+				582CE9342A3D1A2600B6CAC4 /* Document.swift in Sources */,
 				C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */,
+				582CE9372A3D1A2600B6CAC4 /* NewDocViewController.swift in Sources */,
+				582CE9362A3D1A2600B6CAC4 /* NewDocView.swift in Sources */,
+				582CE93F2A3D1A2600B6CAC4 /* ImportantDocsViewController.swift in Sources */,
 				C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */,
+				582CE92F2A3D1A2600B6CAC4 /* SignUpViewController.swift in Sources */,
+				582CE92A2A3D1A2600B6CAC4 /* ListsView.swift in Sources */,
+				582CE93D2A3D1A2600B6CAC4 /* SeeListView.swift in Sources */,
+				582CE92B2A3D1A2600B6CAC4 /* ListsViewController.swift in Sources */,
+				582CE9322A3D1A2600B6CAC4 /* User.swift in Sources */,
 				C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */,
+				582CE92D2A3D1A2600B6CAC4 /* LoginPageView.swift in Sources */,
 				C95A6B092A391640007E3799 /* IndividualDocViewController.swift in Sources */,
+				582CE93C2A3D1A2600B6CAC4 /* SeeListViewController.swift in Sources */,
+				582CE93B2A3D1A2600B6CAC4 /* ImportantDocumentsView.swift in Sources */,
 				C95A6B072A390F73007E3799 /* IndividualDocView.swift in Sources */,
+				582CE93E2A3D1A2600B6CAC4 /* ItemsTableViewCell.swift in Sources */,
 				C92FA7AB2A2F6E5000110696 /* IntroPageView.swift in Sources */,
 				C9C52C972A3D1C2200603F8D /* LandingPageView.swift in Sources */,
 				C9C52C892A3CE94D00603F8D /* TableViewImageCell.swift in Sources */,
+				582CE9312A3D1A2600B6CAC4 /* Item.swift in Sources */,
+				582CE92E2A3D1A2600B6CAC4 /* LoginPageViewController.swift in Sources */,
 				C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */,
+				582CE9302A3D1A2600B6CAC4 /* SignUpView.swift in Sources */,
 				C92FA7B02A2F76B800110696 /* ViewUtilites.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

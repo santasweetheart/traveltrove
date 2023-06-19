@@ -1,47 +1,51 @@
 //
-//  IndividualDocViewController.swift
+//  NewDocViewController.swift
 //  traveltrove
 //
-//  Created by Katherine on 6/13/23.
+//  Created by Dillian Pica on 6/12/23.
 //
 
 import UIKit
 import PhotosUI
 
-class IndividualDocViewController: UIViewController {
-
-    let screen = IndividualDocView()
-    var images = [UIImage]()
+class NewDocViewController: UIViewController {
+    let newDocView = NewDocView()
+    let notificationCenter = NotificationCenter.default
     var pickedImage:UIImage?
-
+    
     override func loadView() {
-        view = screen
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Trip Name"
-        screen.tableViewImage.backgroundColor = .customTan
-        
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-
-        // Set up table view data source
-        screen.tableViewImage.delegate = self
-        screen.tableViewImage.dataSource = self
-
-        // Pass image data to the table view
-        screen.tableViewImage.reloadData()
-        
-        //Add Menu to pick image
-        screen.addButton.menu = getMenuImagePicker()
+        view = newDocView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .done, target: self,
+                            action: #selector(onDoneBarButtonTapped)
+                    )
+        navigationItem.rightBarButtonItem?.tintColor = .black
+        newDocView.buttonTakePhoto.menu = getMenuImagePicker()
+    }
+    
+    @objc func onDoneBarButtonTapped(){
+        if let name = newDocView.nameField.text, let note = newDocView.notesField.text{
+            if !name.isEmpty && !note.isEmpty && pickedImage != nil {
+                notificationCenter.post(
+                    name: Notification.Name("textFromFirstScreen"),
+                    object: Document(title: name, note: note, image: self.pickedImage))
+                navigationController?.popViewController(animated: true)
+            }else{
+                showErrorAlert()
+            }
+        }
+    }
+    
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Error!", message: "Text Fields or Image are empty!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+            
+        self.present(alert, animated: true)
+    }
     
     func getMenuImagePicker() -> UIMenu{
         let menuItems = [
@@ -50,59 +54,34 @@ class IndividualDocViewController: UIViewController {
             }),
             UIAction(title: "Gallery",handler: {(_) in
                 self.pickPhotoFromGallery()
-                
             })
         ]
+        
         return UIMenu(title: "Select source", children: menuItems)
-        }
-    
-    
-    //MARK: pick Photo using Gallery...
+    }
+        
+        
+        //MARK: pick Photo using Gallery...
     func pickPhotoFromGallery(){
         var configuration = PHPickerConfiguration()
         configuration.filter = PHPickerFilter.any(of: [.images])
         configuration.selectionLimit = 1
-            
         let photoPicker = PHPickerViewController(configuration: configuration)
-            
         photoPicker.delegate = self
         present(photoPicker, animated: true, completion: nil)
     }
     
-    //MARK: take Photo using Camera...
     func pickUsingCamera(){
         let cameraController = UIImagePickerController()
         cameraController.sourceType = .camera
         cameraController.allowsEditing = true
         cameraController.delegate = self
         present(cameraController, animated: true)
-        
     }
-
-
 }
 
 
-extension IndividualDocViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "images", for: indexPath) as! TableViewImageCell
-
-        let docImage = images[indexPath.row]
-
-        // Configure the cell with image data
-        cell.profileImageView.image =  docImage
-
-        return cell
-    }
-    
-}
-
-//MARK: adopting required protocols for PHPicker...
-extension IndividualDocViewController:PHPickerViewControllerDelegate {
+extension NewDocViewController:PHPickerViewControllerDelegate{
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
         
@@ -115,7 +94,7 @@ extension IndividualDocViewController:PHPickerViewControllerDelegate {
                 item.loadObject(ofClass: UIImage.self, completionHandler: { (image, error) in
                     DispatchQueue.main.async{
                         if let uwImage = image as? UIImage{
-                            self.screen.addButton.setImage(
+                            self.newDocView.buttonTakePhoto.setImage(
                                 uwImage.withRenderingMode(.alwaysOriginal),
                                 for: .normal
                             )
@@ -128,22 +107,18 @@ extension IndividualDocViewController:PHPickerViewControllerDelegate {
     }
 }
 
-//MARK: adopting required protocols for UIImagePicker...
-extension IndividualDocViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+extension NewDocViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         
         if let image = info[.editedImage] as? UIImage{
-            self.screen.addButton.setImage(
+            self.newDocView.buttonTakePhoto.setImage(
                 image.withRenderingMode(.alwaysOriginal),
                 for: .normal
             )
-            self.pickedImage = image
-        }else{
-            // Do your thing for No image loaded...
+            
+        self.pickedImage = image
+            
         }
     }
 }
-
-
-
