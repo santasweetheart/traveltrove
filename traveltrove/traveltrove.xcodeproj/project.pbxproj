@@ -40,6 +40,7 @@
 		C9C52C942A3D083C00603F8D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C9C52C932A3D083C00603F8D /* FirebaseStorage */; };
 		C9C52C972A3D1C2200603F8D /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C52C962A3D1C2200603F8D /* LandingPageView.swift */; };
 		C9C637602A2C435A003CD6D2 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */; };
+		C9ED14A62A4086A4002F5186 /* SignUpFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14A52A4086A4002F5186 /* SignUpFirebaseManager.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
 		C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DE2A26C5EB0037CEF4 /* ViewController.swift */; };
@@ -79,6 +80,7 @@
 		C9C52C962A3D1C2200603F8D /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		C9C6375F2A2C435A003CD6D2 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		C9C637642A2C43DA003CD6D2 /* Imprima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Imprima-Regular.ttf"; sourceTree = "<group>"; };
+		C9ED14A52A4086A4002F5186 /* SignUpFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirebaseManager.swift; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				582CE9142A3D1A2600B6CAC4 /* SignUpViewController.swift */,
 				582CE9152A3D1A2600B6CAC4 /* SignUpView.swift */,
+				C9ED14A52A4086A4002F5186 /* SignUpFirebaseManager.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */,
 				582CE9372A3D1A2600B6CAC4 /* NewDocViewController.swift in Sources */,
 				582CE9362A3D1A2600B6CAC4 /* NewDocView.swift in Sources */,
+				C9ED14A62A4086A4002F5186 /* SignUpFirebaseManager.swift in Sources */,
 				582CE93F2A3D1A2600B6CAC4 /* ImportantDocsViewController.swift in Sources */,
 				C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */,
 				582CE92F2A3D1A2600B6CAC4 /* SignUpViewController.swift in Sources */,

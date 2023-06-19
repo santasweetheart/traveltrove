@@ -10,12 +10,14 @@ import PhotosUI
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseStorage
 
 class SignUpViewController: UIViewController {
 
     let signUpView = SignUpView()
     var pickedImage:UIImage?
     let database = Firestore.firestore()
+    let storage = Storage.storage()
     
     override func loadView() {
         view = signUpView
@@ -32,30 +34,9 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func landingButtonSubmitTapped(){
-        //MARK: create a Firebase user with email and password...
-        if let name = signUpView.nameField.text,
-           let email = signUpView.emailField.text,
-           let password = signUpView.passField.text,
-           let birthdate = signUpView.birthField.text,
-           let username = signUpView.emailField.text,
-           let password = signUpView.passField.text{
-            //Validations....
-            Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
-                if error == nil{
-                    //MARK: the user creation is successful...
-                    let collectionContacts = self.database
-                                    .collection("users")
-                                    .document(email)
-                                    .setData(["name" : name, "email" : email, "birthdate" : birthdate,
-                                              "username" : username, "password" : password])
-                    let landingPage = LandingPageViewController()
-                    self.navigationController?.pushViewController(landingPage, animated: true)
-                }else{
-                    //MARK: there is a error creating the user...
-                    print(error)
-                }
-            })
-        }
+        //MARK: creating a new user on Firebase with photo...
+            showActivityIndicator()
+            uploadProfilePhotoToStorage()
     }
     
     func getMenuImagePicker() -> UIMenu{
