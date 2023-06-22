@@ -44,6 +44,7 @@
 		C9ED14A92A40A60D002F5186 /* ProgressSpinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14A82A40A60D002F5186 /* ProgressSpinnerDelegate.swift */; };
 		C9ED14AB2A40A61C002F5186 /* ProgressSpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14AA2A40A61C002F5186 /* ProgressSpinnerViewController.swift */; };
 		C9ED14AD2A40A6D8002F5186 /* SignUpProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14AC2A40A6D8002F5186 /* SignUpProgressIndicatorManager.swift */; };
+		C9ED14B12A43E7B2002F5186 /* NewDocImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14B02A43E7B2002F5186 /* NewDocImageManager.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
 		C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DE2A26C5EB0037CEF4 /* ViewController.swift */; };
@@ -87,6 +88,7 @@
 		C9ED14A82A40A60D002F5186 /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
 		C9ED14AA2A40A61C002F5186 /* ProgressSpinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerViewController.swift; sourceTree = "<group>"; };
 		C9ED14AC2A40A6D8002F5186 /* SignUpProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProgressIndicatorManager.swift; sourceTree = "<group>"; };
+		C9ED14B02A43E7B2002F5186 /* NewDocImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDocImageManager.swift; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				582CE91D2A3D1A2600B6CAC4 /* NewDocView.swift */,
 				582CE91E2A3D1A2600B6CAC4 /* NewDocViewController.swift */,
+				C9ED14B02A43E7B2002F5186 /* NewDocImageManager.swift */,
 			);
 			path = NewDocuments;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				582CE9292A3D1A2600B6CAC4 /* ListTableViewCell.swift in Sources */,
+				C9ED14B12A43E7B2002F5186 /* NewDocImageManager.swift in Sources */,
 				C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */,
 				582CE9332A3D1A2600B6CAC4 /* List.swift in Sources */,
 				582CE92C2A3D1A2600B6CAC4 /* DocsTableViewCell.swift in Sources */,

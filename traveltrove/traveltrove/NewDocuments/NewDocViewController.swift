@@ -7,11 +7,18 @@
 
 import UIKit
 import PhotosUI
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+import FirebaseStorage
+import FirebaseAuth
 
 class NewDocViewController: UIViewController {
     let newDocView = NewDocView()
     let notificationCenter = NotificationCenter.default
     var pickedImage:UIImage?
+    let database = Firestore.firestore()
+    let storage = Storage.storage()
+    let currentUser = Auth.auth().currentUser
     
     override func loadView() {
         view = newDocView
@@ -34,6 +41,7 @@ class NewDocViewController: UIViewController {
                     name: Notification.Name("textFromFirstScreen"),
                     object: Document(title: name, note: note, image: self.pickedImage))
                 navigationController?.popViewController(animated: true)
+                uploadImageToStorage()
             }else{
                 showErrorAlert()
             }
