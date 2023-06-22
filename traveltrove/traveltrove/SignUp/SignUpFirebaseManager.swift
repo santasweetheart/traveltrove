@@ -55,6 +55,7 @@ extension SignUpViewController {
                                       .document(email)
                                       .setData(["name" : name, "email" : email, "birthdate" : birthdate,
                                                 "username" : username, "password" : password])
+                      //MARK: create the images collection...
                       self.setNameAndPhotoOfTheUserInFirebaseAuth(name: name, email: email, photoURL: photoURL)
                   }else{
                       //MARK: there is a error creating the user...
@@ -69,16 +70,37 @@ extension SignUpViewController {
           changeRequest?.displayName = name
           changeRequest?.photoURL = photoURL
           
+          
           print("\(photoURL)")
           changeRequest?.commitChanges(completion: {(error) in
               if error != nil{
                   print("Error occured: \(String(describing: error))")
               }else{
-                  self.hideActivityIndicator()
-                  let landingPage = LandingPageViewController()
-                  self.navigationController?.pushViewController(landingPage, animated: true)
+                  self.addProfileImageToCollection(email: email, photoURL: photoURL)
               }
           })
       }
+    
+    func addProfileImageToCollection(email: String, photoURL: URL?) {
+        if photoURL == nil {
+            // The user has not selected an image
+            self.hideActivityIndicator()
+            let landingPage = LandingPageViewController()
+            self.navigationController?.pushViewController(landingPage, animated: true)
+        } else {
+            // The user has selected an image
+            let urlString = photoURL!.absoluteString
+            let collectionImages = self.database.collection("users").document(email).collection("images").addDocument(data: ["url": urlString], completion: { error in
+                if let error = error {
+                    print("Error occurred: \(error)")
+                } else {
+                    self.hideActivityIndicator()
+                    let landingPage = LandingPageViewController()
+                    self.navigationController?.pushViewController(landingPage, animated: true)
+                }
+            })
+        }
+    }
+
        
 }
