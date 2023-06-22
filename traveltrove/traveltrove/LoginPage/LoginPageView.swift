@@ -13,7 +13,7 @@ class LoginPageView: UIView {
     var messageLabel: UILabel!
     var logoLabel: UILabel!
     var largeImageView:UIImageView!
-    var usernameField: UITextField!
+    var emailField: UITextField!
     var passwordField: UITextField!
     var loginButton: UIButton!
     
@@ -65,11 +65,11 @@ class LoginPageView: UIView {
     }
 
     func setupUsernameMes() {
-        usernameField = UITextField()
-        usernameField.placeholder = "Email"
-        usernameField.borderStyle = .roundedRect
-        usernameField.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(usernameField)
+        emailField = UITextField()
+        emailField.placeholder = "Email"
+        emailField.borderStyle = .roundedRect
+        emailField.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(emailField)
     }
 
     func setupPasswordMes() {
@@ -106,13 +106,13 @@ class LoginPageView: UIView {
             messageLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 40),
             messageLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            usernameField.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            usernameField.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 30),
-            usernameField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 40),
-            usernameField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40),
+            emailField.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            emailField.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 30),
+            emailField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+            emailField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             
             passwordField.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            passwordField.topAnchor.constraint(equalTo: usernameField.bottomAnchor, constant: 30),
+            passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 30),
             passwordField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 40),
             passwordField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             

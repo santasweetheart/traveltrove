@@ -9,32 +9,30 @@ import PhotosUI
 
 class ViewController: UIViewController {
 
-    let screen = IndividualDocView()
+    let introScreen = IntroPageView()
     
 
     override func loadView() {
-        view = screen
+        view = introScreen
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-    
-    
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-                        barButtonSystemItem: .add, target: self,
-                        action: #selector(onAddBarButtonTapped)
-                )
-        }
+        self.introScreen.loginButton.addTarget(self, action: #selector(loginButtonSubmitTapped), for: .touchUpInside)
         
-            @objc func onAddBarButtonTapped(){
-                var login = SignUpViewController()
-                //var login = LoginPageViewController()
-                navigationController?.pushViewController(login, animated: true)
-            }
+        self.introScreen.signupButton.addTarget(self, action: #selector(registerButtonSubmitTapped), for: .touchUpInside)
+    }
+        
+    @objc func loginButtonSubmitTapped(){
+        var login = LoginPageViewController()
+        navigationController?.pushViewController(login, animated: true)
+    }
     
-       
+    @objc func registerButtonSubmitTapped(){
+        var signUp = SignUpViewController()
+        navigationController?.pushViewController(signUp, animated: true)
+    }
 }
 
 

@@ -7,11 +7,18 @@
 
 import UIKit
 import PhotosUI
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+import FirebaseStorage
 
 class SignUpViewController: UIViewController {
 
     let signUpView = SignUpView()
     var pickedImage:UIImage?
+    let database = Firestore.firestore()
+    let storage = Storage.storage()
+    let childProgressView = ProgressSpinnerViewController()
     
     override func loadView() {
         view = signUpView
@@ -22,13 +29,14 @@ class SignUpViewController: UIViewController {
         signUpView.buttonTakePhoto.menu = getMenuImagePicker()
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done, target: self,
-                            action: #selector(onDoneBarButtonTapped)
+                            action: #selector(landingButtonSubmitTapped)
                     )
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
     
-    @objc func onDoneBarButtonTapped(){
-        
+    @objc func landingButtonSubmitTapped(){
+            showActivityIndicator()
+            uploadProfilePhotoToStorage()
     }
     
     func getMenuImagePicker() -> UIMenu{

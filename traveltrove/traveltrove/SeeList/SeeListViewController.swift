@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class SeeListViewController: UIViewController {
     var delegate: ListsViewController!
     let seeLisView = SeeListView()
     var items = [Item]()
+    var currentUser = Auth.auth().currentUser
+    let database = Firestore.firestore()
+    var handleAuth: AuthStateDidChangeListenerHandle?
     let notificationCenter = NotificationCenter.default
     
     override func loadView() {
@@ -22,6 +28,33 @@ class SeeListViewController: UIViewController {
         seeLisView.tableViewItems.separatorStyle = .none
         seeLisView.tableViewItems.allowsMultipleSelection = true
         countTotal()
+        handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
+            print()
+            self.currentUser = user
+            self.database.collection("users")
+                .document("Hi@gmail.com")
+                .collection("lists")
+                .document(self.seeLisView.titleLabel.text!)
+                .collection("items")
+                .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
+                    print("Test 2")
+                    if let documents = querySnapshot?.documents{
+                        Static.lists.removeAll()
+                        for document in documents{
+                            do{
+                                let item  = try document.data(as: Item.self)
+                                //Static.lists[Static.lastNum]. = item.name
+                              //  print(list.name)
+                            }catch{
+                                print(error)
+                            }
+                        }
+                        Static.lists.sort(by: {$0.name < $1.name})
+                        self.seeLisView.tableViewItems.reloadData()
+                    }
+                })
+            print("Test 3")
+        }
         seeLisView.tableViewItems.delegate = self
         seeLisView.tableViewItems.dataSource = self
         seeLisView.addButton.addTarget(self, action: #selector(onButtonSubmitTapped), for: .touchUpInside)
@@ -33,15 +66,21 @@ class SeeListViewController: UIViewController {
            let unwrappedValue = seeLisView.valueField.text{
             if !unwrappedMessage.isEmpty, !unwrappedValue.isEmpty{
                 if let doubl = Double(unwrappedValue) {
-                    items.append(Item(name: seeLisView.nameField.text, totalVal: doubl))
+                    items.append(Item(name: unwrappedMessage, totalVal: doubl))
                     seeLisView.tableViewItems.reloadData()
                     seeLisView.nameField.text = ""
                     seeLisView.valueField.text = ""
-                    Static.lists[Static.lastNum].name = seeLisView.titleLabel.text
+                    self.database.collection("users")
+                        .document("Hi@gmail.com")
+                        .collection("lists")
+                        .document(seeLisView.titleLabel.text!)
+                        .collection("items")
+                        .document(unwrappedMessage)
+                        .setData(["name" : unwrappedMessage, "totalVal" : doubl])
+                    //Static.lists[Static.lastNum].name = seeLisView.titleLabel.text
                     Static.lists[Static.lastNum].numItem =  items.count
                     Static.lists[Static.lastNum].totalVal = String(countTotal())
                     delegate.listsView.tableViewLists.reloadData()
-                   // Static.list.numItem = 20
                 } else {
                     showNotDouble()
                 }
@@ -66,7 +105,7 @@ class SeeListViewController: UIViewController {
     func countTotal() -> Double{
         var totalOfItems = 0.0
         for item in items {
-            totalOfItems += item.totalVal!
+            totalOfItems += item.totalVal
         }
         seeLisView.totalLabel.text = "$\(String(format: "%.2f", totalOfItems))"
         return totalOfItems
@@ -80,10 +119,12 @@ extension SeeListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "items", for: indexPath) as! ItemsTableViewCell
-        
-        if let uwName = items[indexPath.row].name, let created = items[indexPath.row].totalVal{
-            cell.labelTitle.text = uwName + " ($\(String(format: "%.2f", created)))"
-        }
+        let uwName = items[indexPath.row].name
+        let created = items[indexPath.row].totalVal
+        cell.labelTitle.text = uwName + " ($\(String(format: "%.2f", created)))"
+//        if let uwName = items[indexPath.row].name, let created = items[indexPath.row].totalVal{
+//            cell.labelTitle.text = uwName + " ($\(String(format: "%.2f", created)))"
+//        }
         
         return cell
     }
@@ -100,7 +141,7 @@ extension SeeListViewController: UITableViewDelegate, UITableViewDataSource{
         if editingStyle == .delete {
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            Static.lists[Static.lastNum].name = seeLisView.titleLabel.text
+            //Static.lists[Static.lastNum].name = seeLisView.titleLabel.text
             Static.lists[Static.lastNum].numItem =  items.count
             Static.lists[Static.lastNum].totalVal = String(countTotal())
             delegate.listsView.tableViewLists.reloadData()
