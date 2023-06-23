@@ -11,12 +11,12 @@ import UIKit
 struct Document{
     var title: String?
     var note: String?
-    var image: UIImage?
+    var images: [UIImage?]
     
-    init(title: String?, note: String?, image: UIImage?) {
+    init(title: String?, note: String?, images: [UIImage?]) {
         self.title = title
         self.note = note
-        self.image = image
+        self.images = images
     }
     
 }

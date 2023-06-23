@@ -39,7 +39,7 @@ class NewDocViewController: UIViewController {
             if !name.isEmpty && !note.isEmpty && pickedImage != nil {
                 notificationCenter.post(
                     name: Notification.Name("textFromFirstScreen"),
-                    object: Document(title: name, note: note, image: self.pickedImage))
+                    object: Document(title: name, note: note, images: [self.pickedImage]))
                 navigationController?.popViewController(animated: true)
                 uploadImageToStorage()
             }else{
