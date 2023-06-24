@@ -52,11 +52,11 @@ extension SignUpViewController {
                       //MARK: the user creation is successful...
                       let collectionContacts = self.database
                                       .collection("users")
-                                      .document(email)
+                                      .document(email.lowercased())
                                       .setData(["name" : name, "email" : email, "birthdate" : birthdate,
                                                 "username" : username, "password" : password])
                       //MARK: create the images collection...
-                      self.setNameAndPhotoOfTheUserInFirebaseAuth(name: name, email: email, photoURL: photoURL)
+                      self.setNameAndPhotoOfTheUserInFirebaseAuth(name: name, email: email.lowercased(), photoURL: photoURL)
                   }else{
                       //MARK: there is a error creating the user...
                       print(error)
@@ -90,7 +90,7 @@ extension SignUpViewController {
         } else {
             // The user has selected an image
             let urlString = photoURL!.absoluteString
-            let collectionImages = self.database.collection("users").document(email).collection("images").addDocument(data: ["url": urlString], completion: { error in
+            let collectionImages = self.database.collection("users").document(email.lowercased()).collection("images").addDocument(data: ["url": urlString], completion: { error in
                 if let error = error {
                     print("Error occurred: \(error)")
                 } else {
