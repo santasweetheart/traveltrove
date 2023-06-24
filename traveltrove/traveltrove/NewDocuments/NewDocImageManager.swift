@@ -60,7 +60,7 @@ extension NewDocViewController {
         let userDocumentsCollection = self.database.collection("users").document(currentUser.email!).collection("documents")
         let documentsRef = self.database.collection("documents").document(doc)
         
-        //
+        
         userDocumentsCollection.addDocument(data: ["doc": documentsRef]) { error in
             if let error = error {
                 print("Error connecting document to user: \(error)")

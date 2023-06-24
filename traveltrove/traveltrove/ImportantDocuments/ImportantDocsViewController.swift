@@ -17,7 +17,6 @@ class ImportantDocsViewController: UIViewController {
     let storage = Storage.storage()
     let currentUser = Auth.auth().currentUser
     var documents = [Document]()
-    let notificationCenter = NotificationCenter.default
     let childProgressView = ProgressSpinnerViewController()
     
     override func loadView() {
@@ -33,11 +32,6 @@ class ImportantDocsViewController: UIViewController {
         importantDocsView.tableViewDocs.dataSource = self
         importantDocsView.addButton.addTarget(self, action: #selector(onButtonSubmitTapped), for: .touchUpInside)
         
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(notificationReceivedForTextChanged(notification:)),
-            name: Notification.Name("textFromFirstScreen"),
-            object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +39,6 @@ class ImportantDocsViewController: UIViewController {
         loadDocumentsIntoView()
     }
     
-    @objc func notificationReceivedForTextChanged(notification: Notification) {
-        // documents.append(Document(title: (notification.object as! Document).title!,
-        //                          note: (notification.object as! Document).note!,
-        //                          image: (notification.object as! Document).image))
-    }
-
 
     @objc func onButtonSubmitTapped() {
         let newDocView = NewDocViewController()
@@ -67,24 +55,27 @@ extension ImportantDocsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "docs", for: indexPath) as! DocsTableViewCell
-        
+
         let uwNote = documents[indexPath.row].note
         let uwTitle = documents[indexPath.row].title
-        let uwImage = documents[indexPath.row].images[0]
-        
-        cell.labelNote.text = "Notes: \(uwNote)"
-        cell.labelTitle.text = uwTitle
-        do{
-            cell.imageReceipt.loadRemoteImage(from: try URL(from: uwImage as! Decoder))
-        } catch {
-            print(error)
+        let numOfImages = documents[indexPath.row].images.count
+        let uwImageString = documents[indexPath.row].images[numOfImages - 1]
+
+        //print(uwImageString)
+        if let url = URL(string: uwImageString) {
+            cell.imageReceipt.loadRemoteImage(from: url)
+            cell.labelNote.text = "Notes: \(uwNote)"
+            cell.labelTitle.text = uwTitle
+        } else {
+            // The string couldn't be converted to a valid URL
+            print("Invalid URL")
         }
-        
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let individualDoc = IndividualDocViewController()
+        let individualDoc = IndividualDocViewController(selectedDoc: documents[indexPath.row])
         navigationController?.pushViewController(individualDoc, animated: true)
     }
     

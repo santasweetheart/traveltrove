@@ -14,7 +14,6 @@ import FirebaseAuth
 
 class NewDocViewController: UIViewController {
     let newDocView = NewDocView()
-    let notificationCenter = NotificationCenter.default
     var pickedImage:UIImage?
     let database = Firestore.firestore()
     let storage = Storage.storage()
@@ -37,9 +36,6 @@ class NewDocViewController: UIViewController {
     @objc func onDoneBarButtonTapped(){
         if let name = newDocView.nameField.text, let note = newDocView.notesField.text{
             if !name.isEmpty && !note.isEmpty && pickedImage != nil {
-//                notificationCenter.post(
-//                    name: Notification.Name("textFromFirstScreen"),
-//                    object: Document(title: name, note: note, images: [self.pickedImage]))
                 uploadImageToStorage()
                 navigationController?.popViewController(animated: true)
             }else{

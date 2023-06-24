@@ -13,6 +13,7 @@ import FirebaseAuth
 import FirebaseStorage
 
 extension ImportantDocsViewController {
+    
     func loadDocumentsIntoView(){
         var listOfDocs: [Document] = []
         var processedCount = 0
@@ -35,7 +36,6 @@ extension ImportantDocsViewController {
                         self.convertRefToLocalDocument(thisDocRef: thisDocRef, completion: {thisLocalDoc in
                             if let uwThisLocalDoc = thisLocalDoc {
                                 //Append Document to list
-                                print(uwThisLocalDoc)
                                 listOfDocs.append(uwThisLocalDoc)
                                 
                                 //Keep track of the number of processed documents
@@ -45,7 +45,7 @@ extension ImportantDocsViewController {
                                 //update self.documents
                                 if processedCount == totalDocs {
                                     self.documents = listOfDocs
-                                    print("documents: \(self.documents)")
+                                    self.importantDocsView.tableViewDocs.reloadData() // Reload the table view after updating the data
                                 }
 
                             } else {
@@ -66,7 +66,6 @@ extension ImportantDocsViewController {
 
     func convertRefToLocalDocument(thisDocRef: DocumentReference, completion: @escaping (Document?) -> Void) {
         let documentsCollection = self.database.collection("documents")
-        let userImagesCollection = self.database.collection("users").document((self.currentUser?.email)!).collection("images")
         
         // Go to documentsCollection and get this document
         documentsCollection.document(thisDocRef.documentID).getDocument { (docSnapshot, error) in

@@ -48,6 +48,7 @@
 		C9ED14B32A451B07002F5186 /* ImageViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14B22A451B07002F5186 /* ImageViewUtils.swift */; };
 		C9ED14B52A45C7A9002F5186 /* ImportantDocumentsProgessIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14B42A45C7A9002F5186 /* ImportantDocumentsProgessIndicator.swift */; };
 		C9ED14B72A45CDCC002F5186 /* LoadDocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14B62A45CDCC002F5186 /* LoadDocumentsManager.swift */; };
+		C9ED14B92A476F48002F5186 /* IndividualDocImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED14B82A476F48002F5186 /* IndividualDocImageManager.swift */; };
 		C9EF42DB2A26C5EB0037CEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */; };
 		C9EF42DD2A26C5EB0037CEF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */; };
 		C9EF42DF2A26C5EB0037CEF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EF42DE2A26C5EB0037CEF4 /* ViewController.swift */; };
@@ -95,6 +96,7 @@
 		C9ED14B22A451B07002F5186 /* ImageViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewUtils.swift; sourceTree = "<group>"; };
 		C9ED14B42A45C7A9002F5186 /* ImportantDocumentsProgessIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantDocumentsProgessIndicator.swift; sourceTree = "<group>"; };
 		C9ED14B62A45CDCC002F5186 /* LoadDocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDocumentsManager.swift; sourceTree = "<group>"; };
+		C9ED14B82A476F48002F5186 /* IndividualDocImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualDocImageManager.swift; sourceTree = "<group>"; };
 		C9EF42D72A26C5EB0037CEF4 /* traveltrove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = traveltrove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EF42DA2A26C5EB0037CEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9EF42DC2A26C5EB0037CEF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				C95A6B062A390F73007E3799 /* IndividualDocView.swift */,
 				C95A6B082A391640007E3799 /* IndividualDocViewController.swift */,
 				C9C52C882A3CE94D00603F8D /* TableViewImageCell.swift */,
+				C9ED14B82A476F48002F5186 /* IndividualDocImageManager.swift */,
 			);
 			path = "Individual Document";
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				C9ED14A92A40A60D002F5186 /* ProgressSpinnerDelegate.swift in Sources */,
 				C9ED14B72A45CDCC002F5186 /* LoadDocumentsManager.swift in Sources */,
 				C92FA7AE2A2F729F00110696 /* CustomButton.swift in Sources */,
+				C9ED14B92A476F48002F5186 /* IndividualDocImageManager.swift in Sources */,
 				582CE92F2A3D1A2600B6CAC4 /* SignUpViewController.swift in Sources */,
 				582CE92A2A3D1A2600B6CAC4 /* ListsView.swift in Sources */,
 				582CE93D2A3D1A2600B6CAC4 /* SeeListView.swift in Sources */,
