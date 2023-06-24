@@ -56,31 +56,19 @@ extension NewDocViewController {
         }
     }
     
-    func connectDocToUserInFirebase(currentUser : FirebaseAuth.User, doc : String ){
-        let collectionDocuments = self.database.collection("users")
-            .whereField("email", isEqualTo: currentUser.email!)
-            .getDocuments() { (querySnapshot, error) in
-                if let error = error {
-                    print(error)
-                } else {
-                    if let document = querySnapshot?.documents.first {
-                        // Document with the title matching the given doc name found
-                        // access the document using `document.data()`
-                        
-                        //get reference from documents collection
-                        let documentsRef = self.database.collection("documents").document(doc)
-                        
-                        // MARK: Connect document to user
-                        let usersDocsCollection = self.database.collection("users").document(document.documentID).collection("documents").addDocument(data: ["doc": documentsRef])
-                    } else {
-                        // Document not found
-                        print("Error: Doc not found in database")
-                    }
-                }
-            }
+    func connectDocToUserInFirebase(currentUser: FirebaseAuth.User, doc: String) {
+        let userDocumentsCollection = self.database.collection("users").document(currentUser.email!).collection("documents")
+        let documentsRef = self.database.collection("documents").document(doc)
         
+        //
+        userDocumentsCollection.addDocument(data: ["doc": documentsRef]) { error in
+            if let error = error {
+                print("Error connecting document to user: \(error)")
+            } else {
+                print("Document connected to user successfully")
+            }
+        }
     }
 
-    
     
 }

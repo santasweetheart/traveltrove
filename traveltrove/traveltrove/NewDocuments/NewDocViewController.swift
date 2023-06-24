@@ -40,8 +40,8 @@ class NewDocViewController: UIViewController {
 //                notificationCenter.post(
 //                    name: Notification.Name("textFromFirstScreen"),
 //                    object: Document(title: name, note: note, images: [self.pickedImage]))
-                navigationController?.popViewController(animated: true)
                 uploadImageToStorage()
+                navigationController?.popViewController(animated: true)
             }else{
                 showErrorAlert()
             }
