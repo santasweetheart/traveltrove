@@ -38,6 +38,7 @@ class NewDocViewController: UIViewController {
             if !name.isEmpty && !note.isEmpty && pickedImage != nil {
                 uploadImageToStorage()
                 navigationController?.popViewController(animated: true)
+                uploadImageToStorage()
             }else{
                 showErrorAlert()
             }
