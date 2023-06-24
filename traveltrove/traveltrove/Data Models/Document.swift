@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-struct Document{
-    var title: String?
-    var note: String?
-    var images: [UIImage?]
+struct Document : Codable {
+    var title: String
+    var note: String
+    var images: [String]
     
-    init(title: String?, note: String?, images: [UIImage?]) {
+    init(title: String, note: String, images: [String]) {
         self.title = title
         self.note = note
         self.images = images
