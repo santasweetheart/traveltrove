@@ -2,7 +2,7 @@
 //  LoadDocumentsManager.swift
 //  traveltrove
 //
-//  Created by Katherine on 6/23/23.
+//  Created by Santa on 6/23/23.
 //
 
 import Foundation
@@ -14,30 +14,45 @@ import FirebaseStorage
 
 extension ImportantDocsViewController {
     func loadDocumentsIntoView(){
-        print("here")
+        var listOfDocs: [Document] = []
+        var processedCount = 0
+        var totalDocs = 0
+        
         self.database.collection("users").document((self.currentUser?.email)!).collection("documents").addSnapshotListener(includeMetadataChanges: false, listener: { querySnapshot, error in
             if let error = error {
                 print("Could not add listener: \(error)")
             } else {
-                //Handle snapshot changes and perfomr any necessary operations
-                var listOfDocs: [DocumentReference] = []
+                //Handle snapshot changes and perfomrany necessary operations
                 if let newDocs = querySnapshot?.documents{
+                    totalDocs = newDocs.count
+                    
                     self.documents.removeAll()
-                    print("\((self.currentUser?.email)!)")
-                    print("Number of new documents: \(newDocs.count)")
-                    print("querySnapshot: \(querySnapshot)")
                     for doc in newDocs{
-                        do {
-                            //create a Document data type
-                            //self.database.collection("documents/\(currentUser.email)/\(docName)")
-                            print("\(doc.documentID) : \(doc.data())")
-                            //let collectionRef = self.database.collection("documents/\((self.currentUser?.email!)!)/\(doc)")
-                            //listOfDocs.append(collectionRef)
-                            
-                            print(listOfDocs)
-                        } catch {
-                            print(error)
-                        }
+                        //Get Document's Reference
+                        let thisDocRef = doc.data()["doc"] as! DocumentReference
+                        
+                        //Turn the document into Document.self data type
+                        self.convertRefToLocalDocument(thisDocRef: thisDocRef, completion: {thisLocalDoc in
+                            if let uwThisLocalDoc = thisLocalDoc {
+                                //Append Document to list
+                                print(uwThisLocalDoc)
+                                listOfDocs.append(uwThisLocalDoc)
+                                
+                                //Keep track of the number of processed documents
+                                processedCount += 1
+                                
+                                //If the number of processed documents is equal to the total num of docs then
+                                //update self.documents
+                                if processedCount == totalDocs {
+                                    self.documents = listOfDocs
+                                    print("documents: \(self.documents)")
+                                }
+
+                            } else {
+                                // Handle the case when the document couldn't be retrieved
+                                print("Failed to retrieve the document")
+                            }
+                        })
                     }
                     
                 } else {
@@ -48,102 +63,54 @@ extension ImportantDocsViewController {
         })
     }
     
-    
-//    func loadDocumentsIntoView() {
-//        print("Function Called")
-//        self.showActivityIndicator()
-//        let collectionDocuments = self.database.collection("users")
-//            .whereField("email", isEqualTo: currentUser?.email!)
-//            .addSnapshotListener { (querySnapshot, error) in
-//                if let error = error {
-//                    print(error)
-//                } else {
-//                    // Get the current user's document
-//                    if let document = querySnapshot?.documents.first {
-//                        // Add a listener to the current user's document collection
-//                        self.database.collection("users").document(document.documentID).collection("documents").addSnapshotListener { (querySnapshot, error) in
-//                            if let error = error {
-//                                print(error)
-//                            } else {
-//                                // Handle the snapshot changes & Perform any necessary operations & update UI
-//                                let newDocs = querySnapshot?.documents // Access the updated documents
-//
-//                                // Convert each item in the snapshot to Document data type
-//                                var convertedDocs: [Document] = []
-//                                for doc in newDocs! {
-//                                    // Get first image from the images collection
-//                                    let imagesCollection = self.database.collection("users").document(document.documentID).collection("images")
-//                                    var listofimages: [UIImage] = []
-//                                    imagesCollection.getDocuments(completion: { (querySnapshot, error) in
-//                                        if let error = error {
-//                                            print("Error getting documents: \(error)")
-//                                        } else {
-//                                            for image in querySnapshot!.documents {
-//                                                let i = UIImageView()
-//                                                if let urlString = image["url"] as? String, let url = URL(string: urlString) {
-//                                                    i.loadRemoteImage(from: url) { loadedImage in
-//                                                        if let image = loadedImage {
-//                                                            listofimages.append(image)
-//                                                        } else {
-//                                                            // Handle the case when the image couldn't be loaded
-//                                                            print("Failed to load the image from URL: \(url)")
-//                                                        }
-//                                                    }
-//                                                } else {
-//                                                    // Handle the case when the URL string is not valid
-//                                                    print("Invalid URL string")
-//                                                }
-//
-//                                            }
-//                                        }
-//                                    })
-//
-//                                    // Access the reference of each document
-//                                    let docRefData = doc.data()["doc"]
-//
-//                                    // Ensure `docRefData` is a valid `DocumentReference`
-//                                    if let docRef = docRefData as? DocumentReference {
-//                                        // Use `docRef` to get the referenced document
-//                                        docRef.getDocument { (document, error) in
-//                                            if let error = error {
-//                                                print(error)
-//                                            } else {
-//                                                if let document = document, document.exists {
-//                                                    // Document exists, access the data using document.data()
-//                                                    if let documentData = document.data() {
-//                                                        // Access the specific fields from documentData as needed
-//                                                        if let title = documentData["title"] as? String,
-//                                                           let note = documentData["note"] as? String {
-//                                                            // Create Document datatype
-//                                                            let document = Document(title: title, note: note, images: listofimages)
-//                                                            convertedDocs.append(document)
-//                                                        }
-//                                                    }
-//                                                } else {
-//                                                    // Document doesn't exist
-//                                                    print("Referenced document does not exist")
-//                                                }
-//                                            }
-//                                        }
-//                                    } else {
-//                                        // Handle the case when `docRefData` is not a valid `DocumentReference`
-//                                        print("Invalid document reference data")
-//                                    }
-//                                }
-//
-//                                // Set documents equal to convertedDocs from snapshot
-//                                self.documents = convertedDocs
-//                                print("documents: \(self.documents)")
-//                                // Reload the table
-//                                self.importantDocsView.tableViewDocs.reloadData()
-//                                self.hideActivityIndicator()
-//                            }
-//                        }
-//                    } else {
-//                        print("Error: Docs not found in database")
-//                    }
-//                }
-//            }
-//    }
-    
+
+    func convertRefToLocalDocument(thisDocRef: DocumentReference, completion: @escaping (Document?) -> Void) {
+        let documentsCollection = self.database.collection("documents")
+        let userImagesCollection = self.database.collection("users").document((self.currentUser?.email)!).collection("images")
+        
+        // Go to documentsCollection and get this document
+        documentsCollection.document(thisDocRef.documentID).getDocument { (docSnapshot, error) in
+            if let error = error {
+                print(error)
+                completion(nil) // Invoke completion with nil if there was an error
+            } else {
+                if let thisDoc = docSnapshot {
+                    //Create a Dcoument
+                    let thisDocData = thisDoc.data()
+                    let thisDocName = thisDocData!["name"] as! String
+                    let thisDocNote = thisDocData!["note"] as! String
+                    self.getImageOfRef(thisDocRef: thisDocRef) { listOfUrlStrings in
+                        let thisLocalDoc = Document(title: thisDocName, note: thisDocNote, images: listOfUrlStrings)
+                        completion(thisLocalDoc) // Invoke completion with the document
+                    }
+                    
+                } else {
+                    completion(nil)// Invoke completion with nil if the document doesn't exist
+                }
+            }
+        }
+    }
+
+    func getImageOfRef(thisDocRef: DocumentReference, completion: @escaping ([String]) -> Void) {
+        var listOfUrlStrings: [String] = []
+        let userImagesCollection = self.database.collection("documents").document(thisDocRef.documentID).collection("images")
+        
+        userImagesCollection.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print(error)
+                completion([]) // Invoke completion with an empty array if there was an error
+            } else {
+                if let imageDocs = querySnapshot?.documents {
+                    for imageDoc in imageDocs {
+                        let imageUrlString = imageDoc.data()["url"] as? String
+                        if let urlString = imageUrlString {
+                            listOfUrlStrings.append(urlString)
+                        }
+                    }
+                }
+                completion(listOfUrlStrings) // Invoke completion with the fetched URLs
+            }
+        }
+    }
+
 }
