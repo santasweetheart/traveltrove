@@ -31,7 +31,7 @@ class ListsViewController: UIViewController {
             if let mail = user?.email {
                 self.currentUser = user
                 self.database.collection("users")
-                    .document((user?.email)!) //user?.email)!.lowercased()
+                    .document((user?.email)!) 
                     .collection("lists")
                     .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                         if let documents = querySnapshot?.documents{
@@ -98,13 +98,6 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource{
         cell.labelTitle.text = Static.lists[indexPath.row].name
         cell.labelNumItems.text = "Total Number of Items: " + String(Static.lists[indexPath.row].numItem)
         cell.labelValue.text = "Total Value: $" + Static.lists[indexPath.row].totalVal
-       
-//        let uwItems = Static.lists[indexPath.row].numItem{
-//            cell.labelNumItems.text = "Total Number of Items: " + String(uwItems)
-//        }
-//        let uwValue = Static.lists[indexPath.row].totalVal{
-//            cell.labelValue.text = "Total Value: $" + uwValue
-//        }
         return cell
     }
     

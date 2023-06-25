@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+
 class SignUpViewController: UIViewController {
 
     let signUpView = SignUpView()
