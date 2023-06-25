@@ -35,9 +35,16 @@ class LoginPageViewController: UIViewController {
                     self.navigationController?.pushViewController(landingPage, animated: true)
                 }else{
                     //MARK: alert that no user found or password wrong...
+                    self.showErrorAlert()
                 }
             })
         }
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "Error!", message: "Email or Password are not correct.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 
     private func configureItems() {

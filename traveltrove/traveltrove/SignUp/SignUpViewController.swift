@@ -52,10 +52,16 @@ class SignUpViewController: UIViewController {
                     self.navigationController?.pushViewController(landingPage, animated: true)
                 }else{
                     //MARK: there is a error creating the user...
-                    print(error)
+                    self.showErrorAlert()
                 }
             })
         }
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "Error!", message: "Either email is not valid, password needs to be longer than 6 characters, or a textfield is empty.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
     
     func getMenuImagePicker() -> UIMenu{
@@ -94,7 +100,6 @@ extension SignUpViewController:PHPickerViewControllerDelegate{
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
-        print(results)
         
         let itemprovider = results.map(\.itemProvider)
         for item in itemprovider{

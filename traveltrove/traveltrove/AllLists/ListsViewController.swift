@@ -28,35 +28,34 @@ class ListsViewController: UIViewController {
         
         
         handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
-            print()
-            self.currentUser = user
-            self.database.collection("users")
-                .document((user?.email)!) //user?.email)!.lowercased()
-                .collection("lists")
-                .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
-                    print("Test 2")
-                    if let documents = querySnapshot?.documents{
-                        Static.lists.removeAll()
-                        for document in documents{
-                            do{
-                                let list  = try document.data(as: List.self)
-                                Static.lists.append(list)
-                                print(list.name)
-                            }catch{
-                                print(error)
+            if let mail = user?.email {
+                self.currentUser = user
+                self.database.collection("users")
+                    .document((user?.email)!) //user?.email)!.lowercased()
+                    .collection("lists")
+                    .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
+                        if let documents = querySnapshot?.documents{
+                            Static.lists.removeAll()
+                            for document in documents{
+                                do{
+                                    let list  = try document.data(as: List.self)
+                                    Static.lists.append(list)
+                                }catch{
+                                    print(error)
+                                }
                             }
+                            Static.lists.sort(by: {$0.name < $1.name})
+                            self.listsView.tableViewLists.reloadData()
                         }
-                        Static.lists.sort(by: {$0.name < $1.name})
-                        self.listsView.tableViewLists.reloadData()
-                    }
-                })
-            print("Test 3")
+                    })
+                self.listsView.tableViewLists.reloadData()
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+            self.listsView.tableViewLists.delegate = self
+            self.listsView.tableViewLists.dataSource = self
+            self.listsView.saveButton.addTarget(self, action: #selector(self.onButtonSubmitTapped), for: .touchUpInside)
         }
-        listsView.tableViewLists.reloadData()
-        
-        listsView.tableViewLists.delegate = self
-        listsView.tableViewLists.dataSource = self
-        listsView.saveButton.addTarget(self, action: #selector(onButtonSubmitTapped), for: .touchUpInside)
     }
     
     @objc func onButtonSubmitTapped() {
@@ -85,6 +84,7 @@ class ListsViewController: UIViewController {
     }
     
 }
+
     
 
 extension ListsViewController: UITableViewDelegate, UITableViewDataSource{

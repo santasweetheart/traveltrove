@@ -18,6 +18,7 @@ class SeeListViewController: UIViewController {
     let database = Firestore.firestore()
     var handleAuth: AuthStateDidChangeListenerHandle?
     let notificationCenter = NotificationCenter.default
+    var test = true
     
     override func loadView() {
         view = seeLisView
@@ -28,32 +29,32 @@ class SeeListViewController: UIViewController {
         seeLisView.tableViewItems.separatorStyle = .none
         seeLisView.tableViewItems.allowsMultipleSelection = true
         handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
-            print()
-            self.currentUser = user
-            self.database.collection("users")
-                .document((user?.email)!.lowercased())
-                .collection("lists")
-                .document(self.seeLisView.titleLabel.text!)
-                .collection("items")
-                .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
-                    print("Test 2")
-                    if let documents = querySnapshot?.documents{
-                        self.items.removeAll()
-                        for document in documents{
-                            do{
-                                let item  = try document.data(as: Item.self)
-                                self.items.append(item)
-                                self.countTotal()
-                              //  print(list.name)
-                            }catch{
-                                print(error)
+            if let mail = (user?.email) {
+                self.currentUser = user
+                self.database.collection("users")
+                    .document((user?.email)!.lowercased())
+                    .collection("lists")
+                    .document(self.seeLisView.titleLabel.text!)
+                    .collection("items")
+                    .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
+                        if let documents = querySnapshot?.documents{
+                            self.items.removeAll()
+                            for document in documents{
+                                do{
+                                    let item  = try document.data(as: Item.self)
+                                    self.items.append(item)
+                                    self.countTotal()
+                                }catch{
+                                    print(error)
+                                }
                             }
+                            Static.lists.sort(by: {$0.name < $1.name})
+                            self.seeLisView.tableViewItems.reloadData()
                         }
-                        Static.lists.sort(by: {$0.name < $1.name})
-                        self.seeLisView.tableViewItems.reloadData()
-                    }
-                })
-            print("Test 3")
+                    })
+            } else {
+                self.navigationController?.popViewController(animated: true)  
+            }
         }
         seeLisView.tableViewItems.delegate = self
         seeLisView.tableViewItems.dataSource = self
@@ -66,7 +67,7 @@ class SeeListViewController: UIViewController {
            let unwrappedValue = seeLisView.valueField.text{
             if !unwrappedMessage.isEmpty, !unwrappedValue.isEmpty{
                 if let doubl = Double(unwrappedValue) {
-                    items.append(Item(name: unwrappedMessage, totalVal: doubl))
+                    items.append(Item(name: unwrappedMessage, totalVal: doubl, check: false))
                     seeLisView.tableViewItems.reloadData()
                     seeLisView.nameField.text = ""
                     seeLisView.valueField.text = ""
@@ -76,11 +77,12 @@ class SeeListViewController: UIViewController {
                         .document(seeLisView.titleLabel.text!)
                         .collection("items")
                         .document(unwrappedMessage)
-                        .setData(["name" : unwrappedMessage, "totalVal" : doubl])
+                        .setData(["name" : unwrappedMessage, "totalVal" : doubl, "check": false])
                     Static.lists[Static.lastNum].name = seeLisView.titleLabel.text!
                     Static.lists[Static.lastNum].numItem =  items.count
                     Static.lists[Static.lastNum].totalVal = String(countTotal())
                     delegate.listsView.tableViewLists.reloadData()
+                    seeLisView.tableViewItems.reloadData()
                 } else {
                     showNotDouble()
                 }
@@ -127,31 +129,47 @@ extension SeeListViewController: UITableViewDelegate, UITableViewDataSource{
         let uwName = items[indexPath.row].name
         let created = items[indexPath.row].totalVal
         cell.labelTitle.text = uwName + " ($\(String(format: "%.2f", created)))"
-//        if let uwName = items[indexPath.row].name, let created = items[indexPath.row].totalVal{
-//            cell.labelTitle.text = uwName + " ($\(String(format: "%.2f", created)))"
-//        }
+        if(self.items[indexPath.row].check) {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
+        self.database.collection("users")
+            .document((self.currentUser?.email)!.lowercased())
+            .collection("lists")
+            .document(seeLisView.titleLabel.text!)
+            .collection("items")
+            .document(items[indexPath.row].name)
+            .setData(["name" : items[indexPath.row].name, "totalVal" : items[indexPath.row].totalVal, "check":   true])
+        self.items[indexPath.row].check = true
     }
 
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
+        self.database.collection("users")
+            .document((self.currentUser?.email)!.lowercased())
+            .collection("lists")
+            .document(seeLisView.titleLabel.text!)
+            .collection("items")
+            .document(items[indexPath.row].name)
+            .setData(["name" : items[indexPath.row].name, "totalVal" : items[indexPath.row].totalVal, "check": false])
+        self.items[indexPath.row].check = false
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("TEST")
-            print(Static.lists[indexPath.row].name)
             self.database.collection("users")
                 .document((self.currentUser?.email)!.lowercased())
                 .collection("lists")
                 .document(seeLisView.titleLabel.text!)
                 .collection("items")
-                .document(items[indexPath.row].name)            //items[indexPath.row].name)
+                .document(items[indexPath.row].name)
                 .delete()
             
             items.remove(at: indexPath.row)
@@ -160,10 +178,6 @@ extension SeeListViewController: UITableViewDelegate, UITableViewDataSource{
             Static.lists[Static.lastNum].numItem =  items.count
             Static.lists[Static.lastNum].totalVal = String(countTotal())
             delegate.listsView.tableViewLists.reloadData()
-            
-            
         }
-        
-        
     }
 }
