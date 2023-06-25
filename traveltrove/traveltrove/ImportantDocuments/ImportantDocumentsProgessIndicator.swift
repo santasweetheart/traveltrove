@@ -1,13 +1,13 @@
 //
-//  SignUpProgressIndicatorManager.swift
+//  ImportantDocumentsProgessIndicator.swift
 //  traveltrove
 //
-//  Created by Santa on 6/19/23.
+//  Created by Santa on 6/23/23.
 //
 
 import Foundation
 
-extension SignUpViewController:ProgressSpinnerDelegate{
+extension ImportantDocsViewController:ProgressSpinnerDelegate{
     func showActivityIndicator(){
         addChild(childProgressView)
         view.addSubview(childProgressView.view)

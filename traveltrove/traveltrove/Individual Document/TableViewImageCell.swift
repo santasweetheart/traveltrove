@@ -2,7 +2,7 @@
 //  TableViewImageCell.swift
 //  traveltrove
 //
-//  Created by Katherine on 6/16/23.
+//  Created by Santa on 6/16/23.
 //
 
 import UIKit

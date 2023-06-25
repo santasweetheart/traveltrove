@@ -2,17 +2,29 @@
 //  IndividualDocViewController.swift
 //  traveltrove
 //
-//  Created by Katherine on 6/13/23.
+//  Created by Santa on 6/13/23.
 //
 
 import UIKit
 import PhotosUI
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+import FirebaseAuth
+import FirebaseStorage
 
 class IndividualDocViewController: UIViewController {
-
-    let screen = IndividualDocView()
-    var images = [UIImage]()
+    let database = Firestore.firestore()
+    let storage = Storage.storage()
+    let currentUser = Auth.auth().currentUser
+    let screen: IndividualDocView
+    var selectedDoc : Document
     var pickedImage:UIImage?
+
+    init(selectedDoc: Document) {
+        self.screen = IndividualDocView()
+        self.selectedDoc = selectedDoc
+        super.init(nibName: nil, bundle: nil)
+    }
 
     override func loadView() {
         view = screen
@@ -20,16 +32,8 @@ class IndividualDocViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Trip Name"
+        title = selectedDoc.title
         screen.tableViewImage.backgroundColor = .customTan
-        
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
-        images.append(UIImage(named: "logo")!)
 
         // Set up table view data source
         screen.tableViewImage.delegate = self
@@ -78,6 +82,10 @@ class IndividualDocViewController: UIViewController {
         present(cameraController, animated: true)
         
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 
 }
@@ -85,19 +93,29 @@ class IndividualDocViewController: UIViewController {
 
 extension IndividualDocViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count
+        return selectedDoc.images.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "images", for: indexPath) as! TableViewImageCell
 
-        let docImage = images[indexPath.row]
-
-        // Configure the cell with image data
-        cell.profileImageView.image =  docImage
+        // Calculate the index for the current row based on the count of images
+        let rowIndex = selectedDoc.images.count - indexPath.row - 1
+        
+        //Cells appearing in the order in which they are added
+        if rowIndex >= 0 && rowIndex < selectedDoc.images.count {
+            let image = selectedDoc.images[rowIndex]
+            if let url = URL(string: image) {
+                cell.profileImageView.loadRemoteImage(from: url)
+            } else {
+                // The string couldn't be converted to a valid URL
+                print("Invalid URL")
+            }
+        }
 
         return cell
     }
+
     
 }
 
@@ -113,11 +131,8 @@ extension IndividualDocViewController:PHPickerViewControllerDelegate {
                 item.loadObject(ofClass: UIImage.self, completionHandler: { (image, error) in
                     DispatchQueue.main.async{
                         if let uwImage = image as? UIImage{
-                            self.screen.addButton.setImage(
-                                uwImage.withRenderingMode(.alwaysOriginal),
-                                for: .normal
-                            )
                             self.pickedImage = uwImage
+                            self.uploadImageToStorage()
                         }
                     }
                 })
@@ -132,11 +147,8 @@ extension IndividualDocViewController: UINavigationControllerDelegate, UIImagePi
         picker.dismiss(animated: true)
         
         if let image = info[.editedImage] as? UIImage{
-            self.screen.addButton.setImage(
-                image.withRenderingMode(.alwaysOriginal),
-                for: .normal
-            )
             self.pickedImage = image
+            uploadImageToStorage()
         }else{
             // Do your thing for No image loaded...
         }

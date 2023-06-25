@@ -2,7 +2,7 @@
 //  CustomButton.swift
 //  traveltrove
 //
-//  Created by Katherine on 6/6/23.
+//  Created by Santa on 6/6/23.
 //
 
 import Foundation
@@ -19,8 +19,8 @@ extension UIButton {
         button.tintColor = .black
         
         // Set button size
-         button.widthAnchor.constraint(equalToConstant: size.width).isActive = true
-         button.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        button.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        button.heightAnchor.constraint(equalToConstant: size.height).isActive = true
         return button
         }
 }
