@@ -106,8 +106,6 @@ extension IndividualDocViewController:PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
         
-        print(results)
-        
         let itemprovider = results.map(\.itemProvider)
         
         for item in itemprovider{

@@ -10,15 +10,13 @@ import PhotosUI
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-import FirebaseStorage
+
 
 class SignUpViewController: UIViewController {
 
     let signUpView = SignUpView()
     var pickedImage:UIImage?
     let database = Firestore.firestore()
-    let storage = Storage.storage()
-    let childProgressView = ProgressSpinnerViewController()
     
     override func loadView() {
         view = signUpView
@@ -35,8 +33,36 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func landingButtonSubmitTapped(){
-            showActivityIndicator()
-            uploadProfilePhotoToStorage()
+        //MARK: create a Firebase user with email and password...
+        if let name = signUpView.nameField.text,
+           let email = signUpView.emailField.text,
+           let password = signUpView.passField.text,
+           let birthdate = signUpView.birthField.text,
+           let username = signUpView.emailField.text,
+           let password = signUpView.passField.text{
+            //Validations....
+            Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
+                if error == nil{
+                    //MARK: the user creation is successful...
+                    let collectionContacts = self.database
+                                    .collection("users")
+                                    .document(email.lowercased())
+                                    .setData(["name" : name, "email" : email, "birthdate" : birthdate,
+                                              "username" : username, "password" : password])
+                    let landingPage = LandingPageViewController()
+                    self.navigationController?.pushViewController(landingPage, animated: true)
+                }else{
+                    //MARK: there is a error creating the user...
+                    self.showErrorAlert()
+                }
+            })
+        }
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "Error!", message: "Either email is not valid, password needs to be longer than 6 characters, or a textfield is empty.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
     
     func getMenuImagePicker() -> UIMenu{
@@ -75,7 +101,6 @@ extension SignUpViewController:PHPickerViewControllerDelegate{
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
-        print(results)
         
         let itemprovider = results.map(\.itemProvider)
         for item in itemprovider{

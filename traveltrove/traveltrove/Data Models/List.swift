@@ -17,6 +17,7 @@ struct List : Codable{
         self.name = name
         self.numItem = numItem
         self.totalVal = totalVal
+        
     }
     
 }

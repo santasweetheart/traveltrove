@@ -67,7 +67,7 @@ class SeeListView: UIView {
     
     func setupTotalLabel(){
         totalLabel = UILabel()
-        totalLabel.text = "Total: $"
+        totalLabel.text = "Total: $0.00"
         totalLabel.font = UIFont.boldSystemFont(ofSize:15)
         totalLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(totalLabel)
