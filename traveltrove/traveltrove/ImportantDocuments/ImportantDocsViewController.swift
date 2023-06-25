@@ -59,7 +59,7 @@ extension ImportantDocsViewController: UITableViewDelegate, UITableViewDataSourc
         let uwNote = documents[indexPath.row].note
         let uwTitle = documents[indexPath.row].title
         let numOfImages = documents[indexPath.row].images.count
-        let uwImageString = documents[indexPath.row].images[numOfImages - 1]
+        let uwImageString = documents[indexPath.row].images[0]
 
         //print(uwImageString)
         if let url = URL(string: uwImageString) {
