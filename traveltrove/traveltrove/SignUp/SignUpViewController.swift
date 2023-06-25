@@ -10,13 +10,15 @@ import PhotosUI
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-
+import FirebaseStorage
 
 class SignUpViewController: UIViewController {
 
     let signUpView = SignUpView()
     var pickedImage:UIImage?
     let database = Firestore.firestore()
+    let storage = Storage.storage()
+    let childProgressView = ProgressSpinnerViewController()
     
     override func loadView() {
         view = signUpView
